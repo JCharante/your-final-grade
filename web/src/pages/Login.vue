@@ -13,7 +13,7 @@
             <hr>
             <div class="col-12 row">
                 <div class="col">
-                    <q-btn @click="creatingAccount ? signup() : signin()" :label="creatingAccount ? `Create Account` : `Sign in`" color="primary" :disable="(username.length === 0 || password.length === 0) || creatingAccount ? displayName.length === 0 : false"/>
+                    <q-btn @click="creatingAccount ? signup() : signin()" :label="creatingAccount ? `Create Account` : $t('signin')" color="primary" :disable="(username.length === 0 || password.length === 0) || creatingAccount ? displayName.length === 0 : false"/>
                 </div>
 
                 <q-btn :label="!creatingAccount? `Need an account?` : `I already have an account`" @click="creatingAccount = !creatingAccount" color="secondary"/>
@@ -39,7 +39,7 @@
         },
         methods: {
             signin() {
-                axiosInstance.post('/login', { username: this.username, password: this.password })
+                axiosInstance.post('/', { requestType: 'login', username: this.username, password: this.password })
                     .then((response) => {
                         console.log(response);
                         this.$store.dispatch('setSessionDoc', response.data).then(this.$router.push('/'));
@@ -63,7 +63,7 @@
                     });
             },
             signup() {
-                axiosInstance.post('/signup', { username: this.username, password: this.password, displayName: this.displayName })
+                axiosInstance.post('/', { requestType: 'signup', username: this.username, password: this.password, displayName: this.displayName })
                     .then((response) => {
                         console.log(response);
                         this.$store.dispatch('setSessionDoc', response.data).then(this.$router.push('/'));

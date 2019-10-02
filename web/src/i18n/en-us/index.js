@@ -5,4 +5,5 @@ export default {
     chinese: '中国文',
     english: 'English',
     logout: 'Log out',
+    signin: 'Sign in',
 };
