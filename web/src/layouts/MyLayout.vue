@@ -3,7 +3,7 @@
         <q-header elevated>
             <q-toolbar>
                 <q-toolbar-title>
-                    Your Final Grade
+                    {{ pageTitle }}
                 </q-toolbar-title>
 
                 <div></div>
@@ -30,6 +30,7 @@
         computed: {
             ...mapGetters([
                 'isProbablySignedIn',
+                'pageTitle',
             ]),
         },
         methods: {
