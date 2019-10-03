@@ -10,5 +10,6 @@ export function addClass({ commit, state }, { name }) {
         const newClass = baseClass();
         newClass.name = name;
         commit('setClass', newClass, newClass);
+        resolve();
     });
 }
