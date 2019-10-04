@@ -1,14 +1,17 @@
 <template>
     <q-page>
-        <div class="q-pa-md" style="max-width: 350px">
-            <template v-if="true">
+        <div class="q-pa-md" style="width: 90%; max-width: 400px">
+            <template v-if="getClassIds.length === 0">
                 <p class="text-center" id="it">It doesn't look like you have any classes :(</p>
                 <p class="text-center">Why not add one?</p>
             </template>
-            <q-list v-else>
-                <q-item clickable>
+            <q-list v-else bordered seperated>
+                <q-item clickable :key="classId" v-for="classId in getClassIds">
                     <q-item-section>
-                        <q-item-label>Chem 1010</q-item-label>
+                        <q-item-label>{{ getClassById(classId).name }}</q-item-label>
+                    </q-item-section>
+                    <q-item-section avatar>
+                        <q-avatar flat icon="keyboard_arrow_right"/>
                     </q-item-section>
                 </q-item>
             </q-list>
@@ -20,10 +23,16 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex';
+    import { mapActions, mapGetters } from 'vuex';
 
     export default {
         name: "Classes",
+        computed: {
+            ...mapGetters([
+                'getClassIds',
+                'getClassById',
+            ]),
+        },
         methods: {
             ...mapActions([
                 'setPageTitle',
