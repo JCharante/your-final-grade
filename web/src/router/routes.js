@@ -5,6 +5,7 @@ const routes = [
         component: () => import('layouts/MyLayout.vue'),
         children: [
             { path: 'login', component: () => import('pages/Login.vue') },
+            { path: 'class/:classid', component: () => import('pages/ClassView.vue'), props: true },
             { path: '', component: () => import('pages/Classes.vue') },
         ],
     },

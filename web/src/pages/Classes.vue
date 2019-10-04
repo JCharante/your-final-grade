@@ -10,7 +10,7 @@
                     <q-item-section>
                         <q-item-label>{{ getClassById(classId).name }}</q-item-label>
                     </q-item-section>
-                    <q-item-section avatar>
+                    <q-item-section avatar @click="$router.push(`/class/${classId}`)">
                         <q-avatar flat icon="keyboard_arrow_right"/>
                     </q-item-section>
                 </q-item>
