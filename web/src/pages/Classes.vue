@@ -14,7 +14,7 @@
             </q-list>
         </div>
         <q-page-sticky position="bottom-right" :offset="[18, 18]">
-            <q-btn fab icon="add" color="accent" />
+            <q-btn fab icon="add" color="accent" @click="fabClick"/>
         </q-page-sticky>
     </q-page>
 </template>
@@ -27,7 +27,29 @@
         methods: {
             ...mapActions([
                 'setPageTitle',
+                'addClass',
             ]),
+            fabClick() {
+                this.$q.dialog({
+                    title: 'Create entry for new class',
+                    message: 'Name of class',
+                    prompt: {
+                        model: '',
+                        type: 'text',
+                    },
+                    cancel: true,
+                    persistent: false,
+                })
+                    .onOk((data) => {
+                        this.addClass({ name: data }).catch((err) => {
+                            this.$q.dialog({
+                                title: 'Invalid Submission',
+                                message: err,
+                                persistent: false,
+                            });
+                        });
+                    });
+            },
         },
         mounted() {
             this.setPageTitle({ name: 'Classes' });
