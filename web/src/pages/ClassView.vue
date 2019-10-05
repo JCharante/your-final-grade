@@ -48,7 +48,7 @@
 
 <script>
     import { mapGetters, mapActions } from 'vuex';
-    import CategoryDialog from "./CategoryDialog";
+    import CategoryDialog from "../components/CategoryDialog";
 
     export default {
         name: "ClassView.vue",

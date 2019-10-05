@@ -62,6 +62,7 @@ module.exports = {
         'no-unreachable': 'warn',
         'func-names': 'off',
         'no-trailing-spaces': 'off',
+        'linebreak-style': 'off',
         
         // allow console.log during development only
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
