@@ -35,7 +35,12 @@ export default function ({ store }) {
         if (to.fullPath !== '/login' && store.getters.getSessionKey.length === 0) {
             next({ path: '/login', replace: true });
         } else {
-            next({ path: to, replace: true });
+            console.log(to);
+            if (to.params.classid && !store.getters.getClassById(to.params.classid)) {
+                next({ path: '/', replace: true });
+            } else {
+                next({ path: to, replace: true });
+            }
         }
     });
     

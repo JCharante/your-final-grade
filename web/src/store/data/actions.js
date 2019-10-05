@@ -14,3 +14,10 @@ export function addClass({ commit, state }, { name }) {
         resolve();
     });
 }
+
+export function addCategory({ commit }, [{ classid }, categoryObj]) {
+    return new Promise((resolve, reject) => {
+        commit('setCategory', [{ classid }, categoryObj, categoryObj]);
+        resolve();
+    });
+}

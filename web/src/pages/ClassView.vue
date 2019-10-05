@@ -36,14 +36,23 @@
                 </q-item>
             </q-list>
         </div>
+        <q-page-sticky position="bottom-right" :offset="[18, 18]">
+            <q-fab color="accent" icon="keyboard_arrow_up" direction="up">
+                <q-fab-action color="primary" @click="addGrade" icon="grade" />
+                <q-fab-action color="secondary" @click="addCategory" icon="category" />
+            </q-fab>
+        </q-page-sticky>
+        <CategoryDialog ref="categoryDialog"/>
     </q-page>
 </template>
 
 <script>
     import { mapGetters, mapActions } from 'vuex';
+    import CategoryDialog from "./CategoryDialog";
 
     export default {
         name: "ClassView.vue",
+        components: { CategoryDialog },
         props: ['classid'],
         computed: {
             ...mapGetters([
@@ -51,6 +60,14 @@
             ]),
             classInfo() {
                 return this.getClassById(this.classid);
+            },
+        },
+        methods: {
+            addGrade() {
+
+            },
+            addCategory() {
+                this.$refs.categoryDialog.show();
             },
         },
     };
