@@ -35,13 +35,36 @@
                     </q-item-section>
                 </q-item>
             </q-list>
+            <template v-if="Object.values(classInfo.categories).length > 0">
+                <q-list bordered>
+                    <q-item>
+                        <q-item-section>
+                            <q-item-label></q-item-label>
+                        </q-item-section>
+                    </q-item>
+                </q-list>
+            </template>
+            <template v-else>
+                <div id="no-cat">
+                    <p class="text-center">It doesn't look like you have any categories added :(</p>
+                    <p class="text-center">Why not add one?</p>
+                </div>
+            </template>
         </div>
-        <q-page-sticky position="bottom-right" :offset="[18, 18]">
-            <q-fab color="accent" icon="keyboard_arrow_up" direction="up">
-                <q-fab-action color="primary" @click="addGrade" icon="grade" />
-                <q-fab-action color="secondary" @click="addCategory" icon="category" />
-            </q-fab>
-        </q-page-sticky>
+
+        <template v-if="Object.values(classInfo.categories).length === 0">
+            <q-page-sticky position="bottom-right" :offset="[18, 18]">
+                <q-btn fab color="secondary" @click="addCategory" icon="category"/>
+            </q-page-sticky>
+        </template>
+        <template v-else>
+            <q-page-sticky position="bottom-right" :offset="[18, 18]">
+                <q-fab color="accent" icon="keyboard_arrow_up" direction="up">
+                    <q-fab-action color="primary" @click="addGrade" icon="grade" />
+                    <q-fab-action color="secondary" @click="addCategory" icon="category" />
+                </q-fab>
+            </q-page-sticky>
+        </template>
         <CategoryDialog ref="categoryDialog"/>
     </q-page>
 </template>
@@ -77,5 +100,7 @@
 </script>
 
 <style scoped>
-
+    #no-cat {
+        margin-top: 50px;
+    }
 </style>
