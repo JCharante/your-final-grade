@@ -36,10 +36,20 @@
                 </q-item>
             </q-list>
             <template v-if="Object.values(classInfo.categories).length > 0">
-                <q-list bordered>
+                <q-list bordered
+                        v-for="category in Object.values(classInfo.categories)"
+                        :key="category.id"
+                >
                     <q-item>
                         <q-item-section>
-                            <q-item-label></q-item-label>
+                            <q-item-label><b>Category</b></q-item-label>
+                        </q-item-section>
+                        <q-item-section>
+                            <q-item-label>{{ category.name }}</q-item-label>
+                        </q-item-section>
+                        <q-item-section avatar>
+                            <q-icon name="edit"
+                                    @click="editCategory(category.id)"/>
                         </q-item-section>
                     </q-item>
                 </q-list>
@@ -90,6 +100,13 @@
                 this.$refs.categoryDialog.show({
                     editExisting: false,
                     classid: this.classid,
+                });
+            },
+            editCategory(categoryId) {
+                this.$refs.categoryDialog.show({
+                    editExisting: true,
+                    classid: this.classid,
+                    categoryId,
                 });
             },
         },
