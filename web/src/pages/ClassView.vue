@@ -67,7 +67,10 @@
 
             },
             addCategory() {
-                this.$refs.categoryDialog.show();
+                this.$refs.categoryDialog.show({
+                    editExisting: false,
+                    classid: this.classid,
+                });
             },
         },
     };

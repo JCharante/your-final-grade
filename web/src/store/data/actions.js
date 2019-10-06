@@ -1,4 +1,4 @@
-import { baseClass } from "./def";
+import { baseClass, mongoObjectId } from "./def";
 
 export function addClass({ commit, state }, { name }) {
     return new Promise((resolve, reject) => {
@@ -17,7 +17,17 @@ export function addClass({ commit, state }, { name }) {
 
 export function addCategory({ commit }, [{ classid }, categoryObj]) {
     return new Promise((resolve, reject) => {
+        if (!('id' in categoryObj)) {
+            categoryObj.id = mongoObjectId();
+        }
         commit('setCategory', [{ classid }, categoryObj, categoryObj]);
+        resolve(categoryObj.id);
+    });
+}
+
+export function modifyCategory({ commit }, [{ classid, id }, categoryObj]) {
+    return new Promise((resolve, reject) => {
+        commit('setCategory', [{ classid }, { id }, categoryObj]);
         resolve();
     });
 }
