@@ -63,6 +63,7 @@ module.exports = {
         'func-names': 'off',
         'no-trailing-spaces': 'off',
         'linebreak-style': 'off',
+        'no-empty': 'off',
         
         // allow console.log during development only
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
