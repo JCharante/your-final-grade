@@ -99,12 +99,13 @@
 </template>
 
 <script>
+    import { ClassCalculator } from 'your-final-grade-calculator-public';
     import { mapGetters, mapActions } from 'vuex';
     import CategoryDialog from "../components/CategoryDialog";
     import GradeDialog from '../components/GradeDialog';
 
     export default {
-        name: "ClassView.vue",
+        name: "ClassView",
         components: { GradeDialog, CategoryDialog },
         props: ['classid'],
         computed: {
@@ -113,6 +114,19 @@
             ]),
             classInfo() {
                 return this.getClassById(this.classid);
+            },
+            dataForCalculator() {
+                return {
+                    categoryList: JSON.parse(JSON.stringify(Object.values(this.getClassById(this.classid).categories))).map((cat) => {
+                        cat.displayName = cat.name;
+                        cat.name = cat.id;
+                        return cat;
+                    }),
+                    gradeList: JSON.parse(JSON.stringify(Object.values(this.getClassById(this.classid).grades))).map((grade) => {
+                        grade.category = grade.categoryId;
+                        return grade;
+                    }),
+                };
             },
         },
         methods: {
