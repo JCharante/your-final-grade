@@ -31,3 +31,10 @@ export function modifyCategory({ commit }, [{ classid, id }, categoryObj]) {
         resolve();
     });
 }
+
+export function setGrade({ commit }, [{ classid, id }, gradeObj]) {
+    return new Promise((resolve, reject) => {
+        commit('setGrade', [{ classid }, { id }, gradeObj]);
+        resolve();
+    });
+}

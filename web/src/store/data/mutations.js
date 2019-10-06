@@ -9,3 +9,9 @@ export function setCategory(state, [{ classid }, { id }, category]) {
         Vue.set(state.classes[classid].categories, id, category);
     }
 }
+
+export function setGrade(state, [{ classid }, { id }, grade]) {
+    if (classid in state.classes) {
+        Vue.set(state.classes[classid].grades, id, grade);
+    }
+}

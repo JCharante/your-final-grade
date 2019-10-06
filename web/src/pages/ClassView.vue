@@ -42,14 +42,35 @@
                 >
                     <q-item>
                         <q-item-section>
-                            <q-item-label><b>Category</b></q-item-label>
+                            <q-item-label>Category</q-item-label>
                         </q-item-section>
                         <q-item-section>
-                            <q-item-label>{{ category.name }}</q-item-label>
+                            <q-item-label><b>{{ category.name }}</b></q-item-label>
                         </q-item-section>
                         <q-item-section avatar>
                             <q-icon name="edit"
                                     @click="editCategory(category.id)"/>
+                        </q-item-section>
+                        <q-item-section avatar>
+                            <q-icon name="delete"/>
+                        </q-item-section>
+                    </q-item>
+                    <q-item v-for="grade in Object.values(classInfo.grades).filter(g => g.categoryId === category.id)"
+                            :key="grade.id">
+                        <q-item-section>
+                            <q-item-label>Assignment:</q-item-label>
+                            <q-item-label caption>Points: {{ grade.pointsEarned }}/{{ grade.maxPoints }}</q-item-label>
+                        </q-item-section>
+                        <q-item-section>
+                            <q-item-label>{{ grade.name }}</q-item-label>
+                            <q-item-label caption>Dropped?</q-item-label>
+                        </q-item-section>
+                        <q-item-section avatar>
+                            <q-icon name="edit"
+                                    @click="editGrade(grade.id)"/>
+                        </q-item-section>
+                        <q-item-section avatar>
+                            <q-icon name="delete"/>
                         </q-item-section>
                     </q-item>
                 </q-list>
@@ -73,16 +94,18 @@
             </template>
         </q-page-sticky>
         <CategoryDialog ref="categoryDialog"/>
+        <GradeDialog ref="gradeDialog"/>
     </q-page>
 </template>
 
 <script>
     import { mapGetters, mapActions } from 'vuex';
     import CategoryDialog from "../components/CategoryDialog";
+    import GradeDialog from '../components/GradeDialog';
 
     export default {
         name: "ClassView.vue",
-        components: { CategoryDialog },
+        components: { GradeDialog, CategoryDialog },
         props: ['classid'],
         computed: {
             ...mapGetters([
@@ -94,7 +117,10 @@
         },
         methods: {
             addGrade() {
-
+                this.$refs.gradeDialog.show({
+                    editExisting: false,
+                    classid: this.classid,
+                });
             },
             addCategory() {
                 this.$refs.categoryDialog.show({
@@ -107,6 +133,13 @@
                     editExisting: true,
                     classid: this.classid,
                     categoryId,
+                });
+            },
+            editGrade(gradeId) {
+                this.$refs.gradeDialog.show({
+                    editExisting: true,
+                    classid: this.classid,
+                    gradeId,
                 });
             },
         },
