@@ -15,7 +15,7 @@
                         <q-item-label>Current Grade</q-item-label>
                     </q-item-section>
                     <q-item-section>
-                        <q-item-label>50%</q-item-label>
+                        <q-item-label>{{ currentGrade }}</q-item-label>
                     </q-item-section>
                 </q-item>
                 <q-item>
@@ -23,7 +23,7 @@
                         <q-item-label>Lowest Possible Grade</q-item-label>
                     </q-item-section>
                     <q-item-section>
-                        <q-item-label>25%</q-item-label>
+                        <q-item-label>{{ lowestGrade }}</q-item-label>
                     </q-item-section>
                 </q-item>
                 <q-item>
@@ -31,7 +31,7 @@
                         <q-item-label>Highest Possible Grade</q-item-label>
                     </q-item-section>
                     <q-item-section>
-                        <q-item-label>75%</q-item-label>
+                        <q-item-label>{{ highestGrade }}</q-item-label>
                     </q-item-section>
                 </q-item>
             </q-list>
@@ -117,16 +117,33 @@
             },
             dataForCalculator() {
                 return {
-                    categoryList: JSON.parse(JSON.stringify(Object.values(this.getClassById(this.classid).categories))).map((cat) => {
+                    categories: JSON.parse(JSON.stringify(Object.values(this.getClassById(this.classid).categories))).map((cat) => {
                         cat.displayName = cat.name;
                         cat.name = cat.id;
                         return cat;
                     }),
-                    gradeList: JSON.parse(JSON.stringify(Object.values(this.getClassById(this.classid).grades))).map((grade) => {
+                    grades: JSON.parse(JSON.stringify(Object.values(this.getClassById(this.classid).grades))).map((grade) => {
                         grade.category = grade.categoryId;
                         return grade;
                     }),
+                    name: this.getClassById(this.classid).name,
                 };
+            },
+            /**
+             *
+             * @returns {ClassCalculator}
+             */
+            classCalculatorObject() {
+                return new ClassCalculator(this.dataForCalculator);
+            },
+            currentGrade() {
+                return this.classCalculatorObject.getCurrentGrade();
+            },
+            highestGrade() {
+                return this.classCalculatorObject.getHighestGrade();
+            },
+            lowestGrade() {
+                return this.classCalculatorObject.getLowestGrade();
             },
         },
         methods: {
