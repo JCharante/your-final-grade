@@ -11,15 +11,6 @@ Vue.use(VueRouter);
  */
 
 export default function ({ store }) {
-    console.log("Retrieving data from local storage");
-    const sessionKey = localStorage.getItem('sessionKey');
-    const displayName = localStorage.getItem('displayName');
-    if (sessionKey) {
-        store.dispatch('setSessionDoc', { sessionKey });
-    }
-    if (displayName) {
-        store.dispatch('setDisplayName', { displayName });
-    }
     const Router = new VueRouter({
         scrollBehavior: () => ({ x: 0, y: 0 }),
         routes,

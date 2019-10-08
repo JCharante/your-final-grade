@@ -1,4 +1,9 @@
+import { LocalStorage } from "quasar";
 import { baseClass, mongoObjectId } from "./def";
+
+export function saveDataStore({ state }) {
+    LocalStorage.set('vuex-store-data', state);
+}
 
 export function addClass({ commit, state }, { name }) {
     return new Promise((resolve, reject) => {

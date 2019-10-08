@@ -1,4 +1,10 @@
+import { LocalStorage } from 'quasar';
 import { axiosInstance } from '../../boot/axios';
+
+
+export function saveUserStore({ state }) {
+    LocalStorage.set('vuex-store-user', state);
+}
 
 export function logout({ commit }) {
     return new Promise((resolve, reject) => {
@@ -15,12 +21,14 @@ export function login({ commit }, { username, password }) {
     });
 }
 
-export function setDisplayName({ commit }, { displayName }) {
+export function setDisplayName({ commit, dispatch }, { displayName }) {
     localStorage.setItem('displayName', displayName);
     commit('setDisplayName', displayName);
+    dispatch('saveUserStore');
 }
 
-export function setSessionDoc({ commit }, { sessionKey }) {
+export function setSessionDoc({ commit, dispatch }, { sessionKey }) {
     localStorage.setItem('sessionKey', sessionKey);
     commit('setSessionKey', sessionKey);
+    dispatch('saveUserStore');
 }
