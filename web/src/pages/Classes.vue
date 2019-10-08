@@ -2,7 +2,7 @@
     <q-page>
         <div class="q-pa-md" style="width: 100%; max-width: 400px">
             <template v-if="getClassIds.length === 0">
-                <p class="text-center" id="it">{{ $t('no_classses_entered') }}</p>
+                <p class="text-center" id="it">{{ $t('no_classes_entered') }}</p>
                 <p class="text-center">{{ $t('why_not_add_one') }}</p>
             </template>
             <q-list v-else bordered separator>
