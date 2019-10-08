@@ -42,10 +42,10 @@
                 >
                     <q-item>
                         <q-item-section>
-                            <q-item-label>Category</q-item-label>
+                            <q-item-label><b>{{ category.name }}</b></q-item-label>
                         </q-item-section>
                         <q-item-section>
-                            <q-item-label><b>{{ category.name }}</b></q-item-label>
+                            <q-item-label>{{ getCatGradeString(category.id) }}</q-item-label>
                         </q-item-section>
                         <q-item-section avatar>
                             <q-icon name="edit"
@@ -172,6 +172,10 @@
                     classid: this.classid,
                     gradeId,
                 });
+            },
+            getCatGradeString(id) {
+                const val = this.classCalculatorObject.getCatGrade(id);
+                return val.toLocaleString('en', { style: 'percent', minimumFractionDigits: 2 });
             },
         },
     };
