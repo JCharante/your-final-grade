@@ -2,35 +2,35 @@
     <q-dialog v-model="vmodel" persistent>
         <q-card style="max-width: 100%; width: 400px">
             <q-card-section>
-                <div class="text-h6">Set grade properties</div>
+                <div class="text-h6">{{ $t('set_grade_properties') }}</div>
             </q-card-section>
             <q-card-section>
                 <q-select v-model="categoryModel"
                           outlined
                           :options="categoryOptions"
-                          label="Category"/>
+                          :label="$t('category')"/>
                 <q-input v-model="name"
                          label="Assignment Name"/>
                 <q-input v-model.number="maxPoints"
                          type="number"
-                         label="Max Points"/>
+                         :label="$t('max_points')"/>
                 <q-input v-model.number="pointsEarned"
                          type="number"
                          :min="0"
-                         label="Points Earned"/>
+                         :label="$t('points_earned')"/>
                 <q-input v-model.number="possibleExtraCredit"
                          type="number"
                          :min="0"
-                         label="Possible Extra Credit"/>
+                         :label="$t('possible_extra_credit')"/>
             </q-card-section>
             <q-card-actions align="right"
                             class="text-primary">
                 <q-btn flat
-                       label="Cancel"
+                       :label="$q.lang.label.cancel"
                        @click="resetFields()"
                        v-close-popup/>
                 <q-btn flat
-                       label="Save"
+                       :label="$q.lang.label.update"
                        @click="save"/>
             </q-card-actions>
         </q-card>

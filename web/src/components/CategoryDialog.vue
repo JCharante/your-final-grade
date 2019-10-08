@@ -2,21 +2,46 @@
     <q-dialog v-model="vmodel" persistent>
         <q-card style="max-width: 100%; width: 400px">
             <q-card-section>
-                <div class="text-h6">Set category properties</div>
+                <div class="text-h6">{{ $t('set_grade_properties') }}</div>
             </q-card-section>
             <q-card-section>
-                <q-input autofocus dense v-model="name" label="Category Name"/>
-                <q-input v-model.number="weight" :min="0" type="number" max="100" label="Category Weight"/>
-                <q-input v-model.number="droppedGrades" :min="0" type="number" label="Number of Dropped Grades"/>
-                <q-input v-model.number="maxPercent" :min="0" type="number" label="Max Percent"/>
+                <q-input autofocus
+                         dense
+                         v-model="name"
+                         :label="$t('category_name')"/>
+                <q-input v-model.number="weight"
+                         :min="0"
+                         type="number"
+                         max="100"
+                         :label="$t('category_weight')"/>
+                <q-input v-model.number="droppedGrades"
+                         :min="0"
+                         type="number"
+                         :label="$t('num_dropped_grades')"/>
+                <q-input v-model.number="maxPercent"
+                         :min="0"
+                         type="number"
+                         :label="$t('max_percent')"/>
                 <q-separator/>
-                <q-toggle v-model="buildUp" label="Toggle Build Up"/>
-                <q-input v-if="!buildUp" v-model.number="maxPoints" :min="0" label="Max Points"/>
+                <q-toggle v-model="buildUp"
+                          :label="$t('toggle_build_up')"/>
+                <q-input v-if="!buildUp"
+                         v-model.number="maxPoints"
+                         :min="0"
+                         :label="$t('max_points')"/>
                 <q-separator/>
-                <q-toggle v-model="topWorthMoreEnabled" label="Toggle Top Worth More" :disable="!topWorthMoreEnabled && !buildUp"/>
-                <q-input v-if="topWorthMoreEnabled" v-model.number="topWorthMore" label="Top Worth More #"/>
-                <q-input v-if="topWorthMoreEnabled" v-model.number="topWorthValue" label="Top Worth Value %"/>
-                <q-input v-if="topWorthMoreEnabled" v-model.number="botWorthValue" label="Bot Worth Value %"/>
+                <q-toggle v-model="topWorthMoreEnabled"
+                          :label="$t('toggle_top_worth_more')"
+                          :disable="!topWorthMoreEnabled && !buildUp"/>
+                <q-input v-if="topWorthMoreEnabled"
+                         v-model.number="topWorthMore"
+                         :label="$t('top_worth_more_num')"/>
+                <q-input v-if="topWorthMoreEnabled"
+                         v-model.number="topWorthValue"
+                         :label="$t('top_worth_value_percentage')"/>
+                <q-input v-if="topWorthMoreEnabled"
+                         v-model.number="botWorthValue"
+                         :label="$t('bot_worth_value_percentage')"/>
             </q-card-section>
 
             <q-card-actions align="right" class="text-primary">
