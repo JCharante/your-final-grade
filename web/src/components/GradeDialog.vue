@@ -10,7 +10,7 @@
                           :options="categoryOptions"
                           :label="$t('category')"/>
                 <q-input v-model="name"
-                         label="Assignment Name"/>
+                         :label="$t('assignment_name')"/>
                 <q-input v-model.number="maxPoints"
                          type="number"
                          :label="$t('max_points')"/>

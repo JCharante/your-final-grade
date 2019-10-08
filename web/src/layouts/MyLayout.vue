@@ -45,12 +45,14 @@
         methods: {
             ...mapActions([
                 'logout',
+                'setLocale',
             ]),
             toggleLang() {
                 const currentLocale = this.$i18n.locale;
                 const newLocale = currentLocale === 'en-us' ? 'zh-cn' : 'en-us';
                 this.$i18n.locale = newLocale;
                 this.lang.set(newLocale === 'en-us' ? ENUS : ZHHANS);
+                this.setLocale({ locale: newLocale });
             },
         },
         data() {

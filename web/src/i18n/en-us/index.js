@@ -26,6 +26,7 @@ export default {
     top_worth_value_percentage: 'Top Worth Value %',
     bot_worth_value_percentage: 'Bot Worth Value %',
     no_categories_entered: "It doesn't look like you have any categories added :(",
+    no_classes_entered: "It doesn't look like you have any classes added :(",
     why_not_add_one: 'Why not add one?',
     assignment: 'Assignment',
     points: 'Points',

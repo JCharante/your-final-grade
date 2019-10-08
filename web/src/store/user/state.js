@@ -4,6 +4,7 @@ function baseGen() {
     return {
         displayName: '',
         sessionKey: '',
+        locale: '',
     };
 }
 

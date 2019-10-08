@@ -2,8 +2,8 @@
     <q-page>
         <div class="q-pa-md" style="width: 100%; max-width: 400px">
             <template v-if="getClassIds.length === 0">
-                <p class="text-center" id="it">It doesn't look like you have any classes :(</p>
-                <p class="text-center">Why not add one?</p>
+                <p class="text-center" id="it">{{ $t('no_classses_entered') }}</p>
+                <p class="text-center">{{ $t('why_not_add_one') }}</p>
             </template>
             <q-list v-else bordered separator>
                 <q-item clickable :key="classId" v-for="classId in getClassIds">

@@ -6,6 +6,8 @@
 
 <script>
     import { mapActions } from 'vuex';
+    import ENUS from 'quasar/lang/en-us';
+    import ZHHANS from 'quasar/lang/zh-hans';
 
     export default {
         name: 'App',
@@ -14,9 +16,14 @@
                 'saveUserStore',
                 'saveDataStore',
                 'saveAppStore',
+                'setLocale',
             ]),
         },
         mounted() {
+            const newLocale = this.$store.state.user.locale;
+            this.$i18n.locale = newLocale;
+            this.$q.lang.set(newLocale === 'en-us' ? ENUS : ZHHANS);
+
             window.addEventListener('beforeunload', () => {
                 this.saveUserStore();
                 this.saveDataStore();

@@ -32,3 +32,8 @@ export function setSessionDoc({ commit, dispatch }, { sessionKey }) {
     commit('setSessionKey', sessionKey);
     dispatch('saveUserStore');
 }
+
+export function setLocale({ commit, dispatch }, { locale }) {
+    commit('setLocale', locale);
+    dispatch('saveUserStore');
+}
