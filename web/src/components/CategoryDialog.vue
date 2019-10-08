@@ -45,8 +45,12 @@
             </q-card-section>
 
             <q-card-actions align="right" class="text-primary">
-                <q-btn flat label="Cancel" @click="resetFields()" v-close-popup />
-                <q-btn flat label="Save" @click="save"/>
+                <q-btn flat
+                       :label="$q.lang.label.cancel"
+                       @click="resetFields()" v-close-popup />
+                <q-btn flat
+                       :label="$q.lang.label.update"
+                       @click="save"/>
             </q-card-actions>
         </q-card>
     </q-dialog>
