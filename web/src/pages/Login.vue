@@ -2,21 +2,30 @@
     <q-page class="flex flex-center">
         <div class="row" style="width: 390px; max-width: 90%;">
             <div class="col-12">
-                <q-input v-model="username" :label="$t('username')"/>
+                <q-input v-model="username"
+                         :label="$t('username')"/>
             </div>
             <div class="col-12">
-                <q-input v-model="password" :label="$t('password')" type="password"/>
+                <q-input v-model="password"
+                         :label="$t('password')"
+                         type="password"/>
             </div>
             <div class="col-12" v-if="creatingAccount">
-                <q-input v-model="displayName" label="Display Name"/>
+                <q-input v-model="displayName"
+                         :label="$t('display_name')"/>
             </div>
             <hr>
             <div class="col-12 row">
                 <div class="col">
-                    <q-btn @click="creatingAccount ? signup() : signin()" :label="creatingAccount ? `Create Account` : $t('signin')" color="primary" :disable="(username.length === 0 || password.length === 0) || creatingAccount ? displayName.length === 0 : false"/>
+                    <q-btn @click="creatingAccount ? signup() : signin()"
+                           :label="creatingAccount ? $t('create_account') : $t('signin')"
+                           color="primary"
+                           :disable="(username.length === 0 || password.length === 0) || creatingAccount ? displayName.length === 0 : false"/>
                 </div>
 
-                <q-btn :label="!creatingAccount? `Need an account?` : `I already have an account`" @click="creatingAccount = !creatingAccount" color="secondary"/>
+                <q-btn :label="!creatingAccount? $t('need_an_account') : $t('already_have_account')"
+                       @click="creatingAccount = !creatingAccount"
+                       color="secondary"/>
             </div>
         </div>
     </q-page>

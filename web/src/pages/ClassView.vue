@@ -58,8 +58,8 @@
                     <q-item v-for="grade in Object.values(classInfo.grades).filter(g => g.categoryId === category.id)"
                             :key="grade.id">
                         <q-item-section>
-                            <q-item-label>Assignment:</q-item-label>
-                            <q-item-label caption>Points: {{ grade.pointsEarned }}/{{ grade.maxPoints }}</q-item-label>
+                            <q-item-label>{{ $t('assignment') }}:</q-item-label>
+                            <q-item-label caption>{{ $t('points') }}: {{ grade.pointsEarned }}/{{ grade.maxPoints }}</q-item-label>
                         </q-item-section>
                         <q-item-section top>
                             <q-item-label>{{ grade.name }}</q-item-label>
@@ -76,8 +76,8 @@
             </template>
             <template v-else>
                 <div id="no-cat">
-                    <p class="text-center">It doesn't look like you have any categories added :(</p>
-                    <p class="text-center">Why not add one?</p>
+                    <p class="text-center">{{ $t('no_categories_entered') }}</p>
+                    <p class="text-center">{{ $t('why_not_add_one') }}</p>
                 </div>
             </template>
         </div>

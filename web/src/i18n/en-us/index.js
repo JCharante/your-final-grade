@@ -25,4 +25,11 @@ export default {
     top_worth_more_num: 'Top Worth More #',
     top_worth_value_percentage: 'Top Worth Value %',
     bot_worth_value_percentage: 'Bot Worth Value %',
+    no_categories_entered: "It doesn't look like you have any categories added :(",
+    why_not_add_one: 'Why not add one?',
+    assignment: 'Assignment',
+    points: 'Points',
+    display_name: 'Display Name',
+    need_an_account: 'Need an account?',
+    already_have_account: 'I already have an account',
 };
