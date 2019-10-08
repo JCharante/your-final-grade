@@ -61,9 +61,8 @@
                             <q-item-label>Assignment:</q-item-label>
                             <q-item-label caption>Points: {{ grade.pointsEarned }}/{{ grade.maxPoints }}</q-item-label>
                         </q-item-section>
-                        <q-item-section>
+                        <q-item-section top>
                             <q-item-label>{{ grade.name }}</q-item-label>
-                            <q-item-label caption>Dropped?</q-item-label>
                         </q-item-section>
                         <q-item-section avatar>
                             <q-icon name="edit"

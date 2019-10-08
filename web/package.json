@@ -1,8 +1,8 @@
 {
   "name": "your-final-grade-spa",
   "version": "0.0.1",
-  "description": "SPA for Your Final Grade (will change later)",
-  "productName": "Quasar App",
+  "description": "Your Final Grade - The Ultimate Final Grade Calculator",
+  "productName": "Your Final Grade",
   "cordovaId": "org.cordova.quasar.app",
   "author": "jcharante <git@jcharante.com>",
   "private": true,
