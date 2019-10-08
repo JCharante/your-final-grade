@@ -11,7 +11,7 @@ const i18n = new VueI18n({
     messages,
 });
 
-console.log('Locale Detected', Quasar.lang.getLocale());
+// console.log('Locale Detected', Quasar.lang.getLocale());
 
 export default ({ app }) => {
     // Set i18n instance on app

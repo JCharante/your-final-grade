@@ -21,7 +21,7 @@
                 this.saveUserStore();
                 this.saveDataStore();
                 this.saveAppStore();
-                console.log('Saving Stored before unload');
+                // console.log('Saving Stored before unload');
             });
         },
     };

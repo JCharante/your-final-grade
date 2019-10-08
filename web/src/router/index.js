@@ -25,13 +25,10 @@ export default function ({ store }) {
     Router.beforeEach((to, from, next) => {
         if (to.fullPath !== '/login' && store.getters.getSessionKey.length === 0) {
             next({ path: '/login', replace: true });
+        } else if (to.params.classid && !store.getters.getClassById(to.params.classid)) {
+            next({ path: '/', replace: true });
         } else {
-            console.log(to);
-            if (to.params.classid && !store.getters.getClassById(to.params.classid)) {
-                next({ path: '/', replace: true });
-            } else {
-                next({ path: to, replace: true });
-            }
+            next({ path: to, replace: true });
         }
     });
     

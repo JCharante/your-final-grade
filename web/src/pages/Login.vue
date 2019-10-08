@@ -41,7 +41,7 @@
             signin() {
                 axiosInstance.post('/', { requestType: 'login', username: this.username, password: this.password })
                     .then((response) => {
-                        console.log(response);
+                        // console.log(response);
                         this.$store.dispatch('setSessionDoc', response.data).then(this.$router.push('/'));
                         return response;
                     })
@@ -59,13 +59,13 @@
                                 color: 'red',
                             });
                         }
-                        console.error(err);
+                        // console.error(err);
                     });
             },
             signup() {
                 axiosInstance.post('/', { requestType: 'signup', username: this.username, password: this.password, displayName: this.displayName })
                     .then((response) => {
-                        console.log(response);
+                        // console.log(response);
                         this.$store.dispatch('setSessionDoc', response.data).then(this.$router.push('/'));
                         return response;
                     })
@@ -83,7 +83,7 @@
                                 color: 'red',
                             });
                         }
-                        console.error(err);
+                        // console.error(err);
                     });
             },
         },
