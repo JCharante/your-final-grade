@@ -9,9 +9,9 @@
 
                 <div></div>
                 <q-btn flat
-                       @click="$q.lang.isoName = ($q.lang.isoName === 'en-us' ? 'zh-cn' : 'en-us')"
+                       @click="toggleLang"
                 >
-                    {{ $q.lang.isoName === 'zh-cn' ? $t('english') : $t('chinese') }}
+                    {{ $i18n.locale === 'zh-cn' ? enus.nativeName : zhhans.nativeName }}
                 </q-btn>
             </q-toolbar>
         </q-header>
@@ -31,6 +31,9 @@
 <script>
     import { mapGetters, mapActions } from 'vuex';
 
+    import ENUS from 'quasar/lang/en-us';
+    import ZHHANS from 'quasar/lang/zh-hans';
+
     export default {
         name: 'MyLayout',
         computed: {
@@ -43,11 +46,20 @@
             ...mapActions([
                 'logout',
             ]),
+            toggleLang() {
+                const currentLocale = this.$i18n.locale;
+                const newLocale = currentLocale === 'en-us' ? 'zh-cn' : 'en-us';
+                this.$i18n.locale = newLocale;
+                this.lang.set(newLocale === 'en-us' ? ENUS : ZHHANS);
+            },
         },
         data() {
             return {
                 lang: this.$q.lang,
+                i18n: this.$i18n,
                 drawerLeft: false,
+                enus: ENUS,
+                zhhans: ZHHANS,
             };
         },
     };

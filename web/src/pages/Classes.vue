@@ -61,7 +61,7 @@
             },
         },
         mounted() {
-            this.setPageTitle({ name: 'Classes' });
+            this.setPageTitle({ name: this.$t('classes') });
         },
     };
 </script>

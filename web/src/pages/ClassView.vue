@@ -4,7 +4,7 @@
             <q-list bordered>
                 <q-item>
                     <q-item-section>
-                        <q-item-label>Class name</q-item-label>
+                        <q-item-label>{{ $t('class_name') }}</q-item-label>
                     </q-item-section>
                     <q-item-section>
                         <q-item-label>{{ classInfo.name }}</q-item-label>
@@ -12,7 +12,7 @@
                 </q-item>
                 <q-item>
                     <q-item-section>
-                        <q-item-label>Current Grade</q-item-label>
+                        <q-item-label>{{ $t('current_grade') }}</q-item-label>
                     </q-item-section>
                     <q-item-section>
                         <q-item-label>{{ currentGrade }}</q-item-label>
@@ -20,7 +20,7 @@
                 </q-item>
                 <q-item>
                     <q-item-section>
-                        <q-item-label>Lowest Possible Grade</q-item-label>
+                        <q-item-label>{{ $t('lowest_possible_grade') }}</q-item-label>
                     </q-item-section>
                     <q-item-section>
                         <q-item-label>{{ lowestGrade }}</q-item-label>
@@ -28,7 +28,7 @@
                 </q-item>
                 <q-item>
                     <q-item-section>
-                        <q-item-label>Highest Possible Grade</q-item-label>
+                        <q-item-label>{{ $t('highest_possible_grade') }}</q-item-label>
                     </q-item-section>
                     <q-item-section>
                         <q-item-label>{{ highestGrade }}</q-item-label>
