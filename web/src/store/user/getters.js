@@ -13,3 +13,7 @@ export function isProbablySignedIn(state) {
 export function getLocale(state) {
     return state.locale;
 }
+
+export function getDarkModeEnabled(state) {
+    return state.darkModeEnabled;
+}

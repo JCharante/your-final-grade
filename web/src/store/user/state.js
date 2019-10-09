@@ -5,6 +5,7 @@ function baseGen() {
         displayName: '',
         sessionKey: '',
         locale: 'en-us',
+        darkModeEnabled: false,
     };
 }
 

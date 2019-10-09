@@ -11,3 +11,7 @@ export function setDisplayName(state, val) {
 export function setLocale(state, val) {
     Vue.set(state, 'locale', val);
 }
+
+export function setDarkModeEnabled(state, val) {
+    Vue.set(state, 'darkModeEnabled', val);
+}

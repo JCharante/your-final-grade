@@ -37,3 +37,7 @@ export function setLocale({ commit, dispatch }, { locale }) {
     commit('setLocale', locale);
     dispatch('saveUserStore');
 }
+
+export function setDarkModeEnabled({ commit }, { enabled }) {
+    commit('setDarkModeEnabled', enabled);
+}

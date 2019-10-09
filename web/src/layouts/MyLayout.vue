@@ -90,8 +90,13 @@
                     </q-card>
                 </div>
                 <div class="col"></div>
-                <div class="col-2 row justify-start items-end">
+                <div class="col-3 row justify-start items-end">
                     <q-card flat>
+                        <q-card-section>
+                            <q-toggle v-if="isProbablySignedIn"
+                                      v-model="darkModeEnabled"
+                                      :label="$t('dark_mode')"/>
+                        </q-card-section>
                         <q-card-section>
                             <q-toggle v-if="isProbablySignedIn"
                                       v-model="enableOnlineSync"
@@ -127,15 +132,25 @@
             ...mapGetters([
                 'isProbablySignedIn',
                 'pageTitle',
+                'getDarkModeEnabled',
             ]),
             displayVoting() {
                 return false;
+            },
+            darkModeEnabled: {
+                set(enabled) {
+                    this.setDarkModeEnabled({ enabled });
+                },
+                get() {
+                    return this.getDarkModeEnabled;
+                },
             },
         },
         methods: {
             ...mapActions([
                 'logout',
                 'setLocale',
+                'setDarkModeEnabled',
             ]),
             toggleLang() {
                 const currentLocale = this.$i18n.locale;
