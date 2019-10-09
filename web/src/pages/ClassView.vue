@@ -14,20 +14,21 @@
                                 @click="editClassName"/>
                     </q-item-section>
                 </q-item>
-                <q-item>
-                    <q-item-section>
-                        <q-item-label>{{ $t('current_grade') }}</q-item-label>
-                    </q-item-section>
-                    <q-item-section>
-                        <q-item-label>{{ currentGrade }}</q-item-label>
-                    </q-item-section>
-                </q-item>
+                <q-separator/>
                 <q-item>
                     <q-item-section>
                         <q-item-label>{{ $t('lowest_possible_grade') }}</q-item-label>
                     </q-item-section>
                     <q-item-section>
                         <q-item-label>{{ lowestGrade }}</q-item-label>
+                    </q-item-section>
+                </q-item>
+                <q-item>
+                    <q-item-section>
+                        <q-item-label><b>{{ $t('current_grade') }}</b></q-item-label>
+                    </q-item-section>
+                    <q-item-section>
+                        <q-item-label><b>{{ currentGrade }}</b></q-item-label>
                     </q-item-section>
                 </q-item>
                 <q-item>
@@ -212,11 +213,11 @@
             },
             getCatGradeInContextString(id) {
                 const maxCatGrade = (this.classInfo.categories[id].maxPercent / 100).toLocaleString('en', { style: 'percent', minimumFractionDigits: 2 });
-                const actualCatGrade = (this.classCalculatorObject.getCatGrade(id) * this.classInfo.categories[id].maxPercent / 100).toLocaleString('en', { style: 'percent', minimumFractionDigits: 2 });
+                const actualCatGrade = (this.classCalculatorObject.getCatGrade(id, true) * this.classInfo.categories[id].maxPercent / 100).toLocaleString('en', { style: 'percent', minimumFractionDigits: 2 });
                 return `${actualCatGrade} / ${maxCatGrade}`;
             },
             getCatGradeString(id) {
-                const val = this.classCalculatorObject.getCatGrade(id);
+                const val = this.classCalculatorObject.getCatGrade(id, true);
                 return val.toLocaleString('en', { style: 'percent', minimumFractionDigits: 2 });
             },
             editClassName() {
