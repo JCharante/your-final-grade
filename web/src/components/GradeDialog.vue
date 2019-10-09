@@ -14,7 +14,10 @@
                 <q-input v-model.number="maxPoints"
                          type="number"
                          :label="$t('max_points')"/>
+                <q-toggle v-model="notYetGraded"
+                          :label="$t('not_yet_graded')"/>
                 <q-input v-model.number="pointsEarned"
+                         v-if="!notYetGraded"
                          type="number"
                          :min="0"
                          :label="$t('points_earned')"/>
@@ -54,6 +57,7 @@
                 maxPoints: 0,
                 pointsEarned: 0,
                 possibleExtraCredit: 0,
+                notYetGraded: false,
             };
         },
         computed: {
@@ -95,6 +99,7 @@
                     this.maxPoints = storedData.maxPoints;
                     this.pointsEarned = storedData.pointsEarned;
                     this.possibleExtraCredit = storedData.possibleExtraCredit;
+                    this.notYetGraded = storedData.notYetGraded;
                 } else {
                     this.id = mongoObjectId();
                 }
@@ -108,6 +113,7 @@
                     maxPoints: this.maxPoints,
                     pointsEarned: this.pointsEarned,
                     possibleExtraCredit: this.possibleExtraCredit,
+                    notYetGraded: this.notYetGraded,
                 };
 
                 this.setGrade([{ classid: this.classid, id: this.id }, data]).then(() => {
@@ -123,6 +129,7 @@
                 this.maxPoints = 0;
                 this.pointsEarned = 0;
                 this.possibleExtraCredit = 0;
+                this.notYetGraded = false;
             },
         },
     };

@@ -46,4 +46,5 @@ export default {
     sync_online: 'Sync Online',
     dark_mode: 'Dark Mode',
     cta: 'Found a bug? Have feature suggestions? Do we not support your grading system? Email Jyan at yfg@jcharante.com',
+    not_yet_graded: 'Not yet graded',
 };
