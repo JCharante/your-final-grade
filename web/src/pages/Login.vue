@@ -89,7 +89,7 @@
                         this.$store.dispatch('setDisplayName', response.data);
                     })
                     .catch((err) => {
-                        if (err.response.status === 500) {
+                        if (err.response.status === 400) {
                             Notify.create({
                                 message: "Try a different username ┗(•̀へ •́ ╮ )",
                                 timeout: 2000,
