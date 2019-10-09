@@ -50,6 +50,7 @@
                         </q-item-section>
                         <q-item-section>
                             <q-item-label>{{ getCatGradeString(category.id) }}</q-item-label>
+                            <q-item-label caption>{{ getCatGradeInContextString(category.id) }}</q-item-label>
                         </q-item-section>
                         <q-item-section avatar>
                             <q-icon name="edit"
@@ -185,6 +186,11 @@
                     classid: this.classid,
                     gradeId,
                 });
+            },
+            getCatGradeInContextString(id) {
+                const maxCatGrade = (this.classInfo.categories[id].maxPercent / 100).toLocaleString('en', { style: 'percent', minimumFractionDigits: 2 });
+                const actualCatGrade = (this.classCalculatorObject.getCatGrade(id) * this.classInfo.categories[id].maxPercent / 100).toLocaleString('en', { style: 'percent', minimumFractionDigits: 2 });
+                return `${actualCatGrade} / ${maxCatGrade}`;
             },
             getCatGradeString(id) {
                 const val = this.classCalculatorObject.getCatGrade(id);
