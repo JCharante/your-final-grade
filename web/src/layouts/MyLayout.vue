@@ -59,7 +59,7 @@
                                     <q-item-section>
                                         <q-item-label>Sync Online</q-item-label>
                                     </q-item-section>
-                                    <q-item-section avatar>
+                                    <q-item-section avatar v-if="displayVoting">
                                         <q-btn icon="plus_one" flat dense/>
                                     </q-item-section>
                                 </q-item>
@@ -70,7 +70,7 @@
                                     <q-item-section>
                                         <q-item-label>Dark Mode</q-item-label>
                                     </q-item-section>
-                                    <q-item-section avatar>
+                                    <q-item-section avatar v-if="displayVoting">
                                         <q-btn icon="plus_one" flat dense/>
                                     </q-item-section>
                                 </q-item>
@@ -114,6 +114,9 @@
                 'isProbablySignedIn',
                 'pageTitle',
             ]),
+            displayVoting() {
+                return false;
+            },
         },
         methods: {
             ...mapActions([
