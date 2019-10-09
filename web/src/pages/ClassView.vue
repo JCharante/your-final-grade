@@ -22,6 +22,9 @@
                     <q-item-section>
                         <q-item-label>{{ lowestGrade }}</q-item-label>
                     </q-item-section>
+                    <q-item-section avatar>
+                        <q-btn icon="info" flat color="info" @click="showInfo('Lowest Possible Grade')"/>
+                    </q-item-section>
                 </q-item>
                 <q-item>
                     <q-item-section>
@@ -30,6 +33,9 @@
                     <q-item-section>
                         <q-item-label><b>{{ currentGrade }}</b></q-item-label>
                     </q-item-section>
+                    <q-item-section avatar>
+                        <q-btn icon="info" flat color="info" @click="showInfo('Current Grade')"/>
+                    </q-item-section>
                 </q-item>
                 <q-item>
                     <q-item-section>
@@ -37,6 +43,9 @@
                     </q-item-section>
                     <q-item-section>
                         <q-item-label>{{ highestGrade }}</q-item-label>
+                    </q-item-section>
+                    <q-item-section avatar>
+                        <q-btn icon="info" flat color="info" @click="showInfo('Highest Possible Grade')"/>
                     </q-item-section>
                 </q-item>
             </q-list>
@@ -283,6 +292,31 @@
                             });
                         });
                     });
+            },
+            showInfo(fieldName) {
+                let title = '';
+                let message = '';
+                switch (fieldName) {
+                case 'Lowest Possible Grade':
+                    title = this.$t('explanation');
+                    message = this.$t('explain_lowest_possible_grade_explanation');
+                    break;
+                case 'Current Grade':
+                    title = this.$t('explanation');
+                    message = this.$t('explain_current_grade_explanation');
+                    break;
+                case 'Highest Possible Grade':
+                    title = this.$t('explanation');
+                    message = this.$t('explain_highest_possible_grade_explanation');
+                    break;
+                default:
+                    break;
+                }
+                this.$q.dialog({
+                    title,
+                    message,
+                    persistent: false,
+                });
             },
         },
         mounted() {
