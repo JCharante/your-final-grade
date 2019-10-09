@@ -61,4 +61,6 @@ export default {
     back_to_list_of_classes: 'Back to list of classes',
     or_continue_without_account: 'Or continue without an account',
     continue_without_account_notice: '(You will not be able to use Cloud Sync)',
+    explain_max_points: 'The maximum amount of points you can get excluding extra credit.',
+    explain_points_earned: 'The amount of points you actually got.',
 };

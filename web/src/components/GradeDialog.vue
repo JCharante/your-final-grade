@@ -13,10 +13,13 @@
                          :label="$t('assignment_name')"/>
                 <q-input v-model.number="maxPoints"
                          type="number"
+                         :hint="$t('explain_max_points')"
                          :label="$t('max_points')"/>
+                <div style="margin-top: 20px;"></div>
                 <q-input v-model.number="pointsEarned"
                          v-if="!notYetGraded"
                          type="number"
+                         :hint="$t('explain_points_earned')"
                          :min="0"
                          :label="$t('points_earned')"/>
                 <q-toggle v-model="notYetGraded"
@@ -135,6 +138,23 @@
                 this.pointsEarned = 0;
                 this.possibleExtraCredit = 0;
                 this.notYetGraded = false;
+            },
+            showInfo(fieldName) {
+                let title = '';
+                let message = '';
+                switch (fieldName) {
+                case 'Max Points':
+                    title = this.$t('explanation');
+                    message = this.$t('explain_max_points');
+                    break;
+                default:
+                    break;
+                }
+                this.$q.dialog({
+                    title,
+                    message,
+                    persistent: false,
+                });
             },
         },
     };
