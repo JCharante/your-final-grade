@@ -47,4 +47,7 @@ export default {
     dark_mode: '夜间模式',
     cta: '找到了bug？想要什么有趣的功能？还是我们的网站不支持你学校的打分系统？请给张坚发送邮件：yfg@jcharante.com',
     not_yet_graded: '尚未批改',
+    are_you_sure: '你确定吗?',
+    this_will_permanently_delete_the_grade: '这将永久删除这个成绩',
+    this_will_permanently_delete_the_category: '这将永久删除这个类别和它附属的成绩',
 };
