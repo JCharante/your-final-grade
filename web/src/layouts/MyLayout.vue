@@ -26,27 +26,32 @@
                 <div class="col" style="margin-top: 0px;">
                     <q-card flat>
                         <q-card-section class="text-center">
-                            <div class="text-h6">Your Final Grade</div>
-                            <div class="text-subtitle2">A tool built with love by</div>
-                            <div class="text-subtitle2">(<a href="https://jcharante.com">Jyan</a>, Jack, and James)</div>
+                            <div class="text-h6">{{ $t('your_final_grade') }}</div>
+                            <div class="text-subtitle2">{{ $t('a_tool_built_with_love_by') }}</div>
+                            <div class="text-subtitle2" v-if="$i18n.locale === 'en-us'">
+                                (<a href="https://jcharante.com">Jyan</a>, Jack, and James)
+                            </div>
+                            <div class="text-subtitle2" v-else>
+                                (<a href="https://jcharante.com">张坚</a>, 杨亦诚和James)
+                            </div>
                         </q-card-section>
 
                         <q-separator dark inset />
 
                         <q-card-section>
                             <div class="text-center">
-                                Our goal is to create the 🔥🔥 ultimate 🔥🔥 final 💪 grade 💯 calculator 🧮 for students 👩‍🎓  🎉
+                                {{ $t('our_goal') }}
                             </div>
                         </q-card-section>
                         <q-card-section>
                             <q-list dense>
-                                <q-item-label header>Feature Roadmap:</q-item-label>
+                                <q-item-label header>{{ $t('feature_roadmap')}}:</q-item-label>
                                 <q-item>
                                     <q-item-section avatar>
                                         <q-icon name="check_box"/>
                                     </q-item-section>
                                     <q-item-section>
-                                        <q-item-label>Offline Only Mode</q-item-label>
+                                        <q-item-label>{{ $t('offline_only_mode') }}</q-item-label>
                                     </q-item-section>
                                     <q-item-section avatar>
                                         <q-icon name="cloud_off"/>
@@ -57,7 +62,7 @@
                                         <q-icon name="check_box_outline_blank"/>
                                     </q-item-section>
                                     <q-item-section>
-                                        <q-item-label>Sync Online</q-item-label>
+                                        <q-item-label>{{ $t('sync_online') }}</q-item-label>
                                     </q-item-section>
                                     <q-item-section avatar v-if="displayVoting">
                                         <q-btn icon="plus_one" flat dense/>
@@ -68,7 +73,7 @@
                                         <q-icon name="check_box_outline_blank"/>
                                     </q-item-section>
                                     <q-item-section>
-                                        <q-item-label>Dark Mode</q-item-label>
+                                        <q-item-label>{{ $t('dark_mode') }}</q-item-label>
                                     </q-item-section>
                                     <q-item-section avatar v-if="displayVoting">
                                         <q-btn icon="plus_one" flat dense/>
@@ -79,7 +84,7 @@
                         <q-separator insert dark/>
                         <q-card-section>
                             <div class="text-center">
-                                Found a bug? Have feature suggestions? Do we not support your grading system? Email Jyan at yfg@jcharante.com
+                                {{ $t('cta') }}
                             </div>
                         </q-card-section>
                     </q-card>
