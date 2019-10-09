@@ -57,7 +57,7 @@
                                     @click="editCategory(category.id)"/>
                         </q-item-section>
                         <q-item-section avatar>
-                            <q-icon name="delete"/>
+                            <q-icon name="delete" @click="clickDeleteCategory(category.id)"/>
                         </q-item-section>
                     </q-item>
                     <q-item v-for="grade in Object.values(classInfo.grades).filter(g => g.categoryId === category.id)"
@@ -162,6 +162,7 @@
                 'setPageTitle',
                 'setClassName',
                 'deleteGrade',
+                'deleteCategory',
             ]),
             addGrade() {
                 this.$refs.gradeDialog.show({
@@ -197,6 +198,16 @@
                 })
                     .onOk((data) => {
                         this.deleteGrade([{ classid: this.classid }, { id: gradeId }]);
+                    });
+            },
+            clickDeleteCategory(categoryId) {
+                this.$q.dialog({
+                    title: '',
+                    message: '',
+                    cancel: true,
+                })
+                    .onOk((data) => {
+                        this.deleteCategory([{ classid: this.classid }, { id: categoryId }]);
                     });
             },
             getCatGradeInContextString(id) {

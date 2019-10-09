@@ -56,3 +56,25 @@ export function deleteGrade({ commit }, [{ classid }, { id }]) {
         commit('deleteGrade', [{ classid }, { id }]);
     });
 }
+
+/**
+ * THIS WILL DELETE ASSOCIATED GRADES
+ * @param state
+ * @param commit
+ * @param classid
+ * @param id
+ * @returns {Promise<any>}
+ */
+export function deleteCategory({ state, commit }, [{ classid }, { id }]) {
+    return new Promise((resolve, reject) => {
+        if (classid in state.classes) {
+            Object.values(state.classes[classid].grades).filter(grade => grade.categoryId === id).forEach((grade) => {
+                commit('deleteGrade', [{ classid }, { id: grade.id }]);
+            });
+            commit('deleteCategory', [{ classid }, { id }]);
+            resolve();
+        } else {
+            reject();
+        }
+    });
+}

@@ -27,3 +27,9 @@ export function deleteGrade(state, [{ classid }, { id }]) {
         Vue.delete(state.classes[classid].grades, id);
     }
 }
+
+export function deleteCategory(state, [{ classid }, { id }]) {
+    if (classid in state.classes) {
+        Vue.delete(state.classes[classid].categories, id);
+    }
+}
