@@ -33,3 +33,7 @@ export function deleteCategory(state, [{ classid }, { id }]) {
         Vue.delete(state.classes[classid].categories, id);
     }
 }
+
+export function wipeStore(state) {
+    Vue.set(state, 'classes', {});
+}

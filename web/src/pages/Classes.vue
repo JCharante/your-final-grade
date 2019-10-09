@@ -74,6 +74,6 @@
 
 <style scoped>
     #it {
-        margin-top: 100%;
+        margin-top: 70%;
     }
 </style>

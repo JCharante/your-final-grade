@@ -6,11 +6,11 @@ export function saveUserStore({ state }) {
     LocalStorage.set('vuex-store-user', state);
 }
 
-export function logout({ commit }) {
+export function userLogout({ commit, dispatch }) {
     return new Promise((resolve, reject) => {
-        localStorage.clear();
         commit('setSessionKey', '');
         commit('setDisplayName', '');
+        dispatch('saveUserStore');
         resolve();
     });
 }

@@ -1,5 +1,12 @@
 import { LocalStorage } from "quasar";
 
+export function appLogout({ commit, dispatch }) {
+    return new Promise((resolve, reject) => {
+        dispatch('saveAppStore');
+        resolve();
+    });
+}
+
 export function saveAppStore({ state }) {
     LocalStorage.set('vuex-store-app', state);
 }

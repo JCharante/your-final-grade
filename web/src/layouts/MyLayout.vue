@@ -102,12 +102,13 @@
                         <q-card-section>
                             <q-toggle v-if="isProbablySignedIn"
                                       v-model="enableOnlineSync"
+                                      disable
                                       :label="$t('enable_online_sync')"/>
                         </q-card-section>
                         <q-card-section>
                             <q-btn v-if="isProbablySignedIn"
                                    flat
-                                   @click="logout().then($router.push('/login'))"
+                                   @click="userLogout().then(dataLogout()).then(appLogout()).then($router.push('/login'))"
                                    color="accent"
                                    :dark="getDarkModeEnabled"
                                    icon="exit_to_app">{{ $t('logout') }}</q-btn>
@@ -151,7 +152,9 @@
         },
         methods: {
             ...mapActions([
-                'logout',
+                'userLogout',
+                'appLogout',
+                'dataLogout',
                 'setLocale',
                 'setDarkModeEnabled',
             ]),

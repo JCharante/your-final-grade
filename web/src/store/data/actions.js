@@ -5,6 +5,14 @@ export function saveDataStore({ state }) {
     LocalStorage.set('vuex-store-data', state);
 }
 
+export function dataLogout({ commit, dispatch }) {
+    return new Promise((resolve, reject) => {
+        commit('wipeStore');
+        dispatch('saveDataStore');
+        resolve();
+    });
+}
+
 export function addClass({ commit, state }, { name }) {
     return new Promise((resolve, reject) => {
         // check is there is a class with the same name
