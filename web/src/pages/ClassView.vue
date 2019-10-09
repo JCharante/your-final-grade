@@ -54,7 +54,10 @@
                             <q-item-label caption>{{ getCatGradeInContextString(category.id) }}</q-item-label>
                         </q-item-section>
                         <q-item-section avatar>
-                            <q-btn icon="more_vert" flat>
+                            <q-btn icon="add" dense flat @click="addGradePreselectedCategory(category.id)"/>
+                        </q-item-section>
+                        <q-item-section avatar>
+                            <q-btn icon="more_vert" flat dense>
                                 <q-menu>
                                     <q-list dense>
                                         <q-item clickable @click="editCategory(category.id)">
@@ -93,7 +96,7 @@
                             <q-item-label>{{ grade.name }}</q-item-label>
                         </q-item-section>
                         <q-item-section avatar>
-                            <q-btn icon="more_vert" flat>
+                            <q-btn icon="more_vert" flat dense>
                                 <q-menu>
                                     <q-list dense>
                                         <q-item clickable @click="editGrade(grade.id)">
@@ -202,6 +205,13 @@
                 this.$refs.gradeDialog.show({
                     editExisting: false,
                     classid: this.classid,
+                });
+            },
+            addGradePreselectedCategory(categoryId) {
+                this.$refs.gradeDialog.show({
+                    editExisting: false,
+                    classid: this.classid,
+                    categoryId,
                 });
             },
             addCategory() {

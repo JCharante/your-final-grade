@@ -83,7 +83,7 @@
             ...mapActions([
                 'setGrade',
             ]),
-            show({ editExisting, classid, gradeId }) {
+            show({ editExisting, classid, gradeId, categoryId }) {
                 this.vmodel = true;
                 this.classid = classid;
                 if (editExisting) {
@@ -102,6 +102,11 @@
                     this.notYetGraded = storedData.notYetGraded;
                 } else {
                     this.id = mongoObjectId();
+                    this.categoryId = categoryId;
+                    if (categoryId && this.categoryId in this.getClassById(this.classid).categories) {
+                        this.categoryModel.value = this.categoryId;
+                        this.categoryModel.label = this.getClassById(this.classid).categories[this.categoryId].name;
+                    }
                 }
             },
             save() {
