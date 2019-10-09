@@ -24,6 +24,8 @@
             this.$i18n.locale = newLocale;
             this.$q.lang.set(newLocale === 'en-us' ? ENUS : ZHHANS);
 
+            this.$q.addressbarColor.set();
+
             window.addEventListener('beforeunload', () => {
                 this.saveUserStore();
                 this.saveDataStore();
