@@ -14,13 +14,13 @@
                 <q-input v-model.number="maxPoints"
                          type="number"
                          :label="$t('max_points')"/>
-                <q-toggle v-model="notYetGraded"
-                          :label="$t('not_yet_graded')"/>
                 <q-input v-model.number="pointsEarned"
                          v-if="!notYetGraded"
                          type="number"
                          :min="0"
                          :label="$t('points_earned')"/>
+                <q-toggle v-model="notYetGraded"
+                          :label="$t('not_yet_graded')"/>
                 <q-input v-model.number="possibleExtraCredit"
                          type="number"
                          :min="0"
