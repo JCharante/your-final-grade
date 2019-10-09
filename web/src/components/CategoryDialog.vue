@@ -47,12 +47,17 @@
                 <div v-if="topWorthMoreEnabled" style="margin-top: 35px;"></div>
                 <q-input v-if="topWorthMoreEnabled"
                          v-model.number="topWorthMore"
+                         :hint="$t('explain_top_worth_more_num')"
                          :label="$t('top_worth_more_num')"/>
                 <q-input v-if="topWorthMoreEnabled"
                          v-model.number="topWorthValue"
+                         suffix="%"
+                         :hint="$t('explain_top_worth_value')"
                          :label="$t('top_worth_value_percentage')"/>
                 <q-input v-if="topWorthMoreEnabled"
                          v-model.number="botWorthValue"
+                         suffix="%"
+                         :hint="$t('explain_bot_worth_value')"
                          :label="$t('bot_worth_value_percentage')"/>
             </q-card-section>
 

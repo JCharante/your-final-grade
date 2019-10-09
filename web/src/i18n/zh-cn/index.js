@@ -64,4 +64,7 @@ export default {
     explain_num_dropped: '该类别中可以被舍弃的最低分数量',
     explain_max_percent: '该类别的最大占比。意味着即便获得了额外得分，总占比也不会超过最大占比。',
     explain_top_worth_more: '得分高的项目与得分底的项目的得分占比不同。通常情况下得分高的占比高。',
+    explain_top_worth_more_num: '占比高的项目数量',
+    explain_top_worth_value: '每个占比高的项目的占比',
+    explain_bot_worth_value: '每个占比低的项目的占比',
 };

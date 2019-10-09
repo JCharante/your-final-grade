@@ -67,4 +67,7 @@ export default {
     explain_num_dropped: 'The number of assignments you can drop in this category',
     explain_max_percent: 'The maximum value of weight. Usually used if extra credit is capped and cannot the weight cannot be exceeded.',
     explain_top_worth_more: 'When assignments with a higher grade are counted differently (usually more) from assignments with lower grades',
+    explain_top_worth_more_num: 'Number of assignments that will be counted more',
+    explain_top_worth_value: 'Weight in percentage of each top assignment',
+    explain_bot_worth_value: 'Weight in percentage of the rest of the assignments',
 };
