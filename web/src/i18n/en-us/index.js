@@ -37,4 +37,5 @@ export default {
     invalid_submission: 'Invalid Submission',
     try_different_username: 'Try a different username ┗(•̀へ •́ ╮ )',
     invalid_credentials: '(」°ロ°)」 Invalid Credentials ',
+    edit_class_details: 'Edit Class Details',
 };

@@ -37,4 +37,5 @@ export default {
     invalid_submission: '提交错误',
     try_different_username: '用户名已被使用 ┗(•̀へ •́ ╮ )',
     invalid_credentials: '(」°ロ°)」 用户名或密码错误',
+    edit_class_details: '编辑课程信息',
 };

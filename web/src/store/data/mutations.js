@@ -15,3 +15,9 @@ export function setGrade(state, [{ classid }, { id }, grade]) {
         Vue.set(state.classes[classid].grades, id, grade);
     }
 }
+
+export function setClassName(state, [{ classid }, { name }]) {
+    if (classid in state.classes) {
+        Vue.set(state.classes[classid], 'name', name);
+    }
+}

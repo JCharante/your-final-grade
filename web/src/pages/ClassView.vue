@@ -9,6 +9,10 @@
                     <q-item-section>
                         <q-item-label>{{ classInfo.name }}</q-item-label>
                     </q-item-section>
+                    <q-item-section avatar>
+                        <q-icon name="edit"
+                                @click="editClassName"/>
+                    </q-item-section>
                 </q-item>
                 <q-item>
                     <q-item-section>
@@ -149,6 +153,7 @@
         methods: {
             ...mapActions([
                 'setPageTitle',
+                'setClassName',
             ]),
             addGrade() {
                 this.$refs.gradeDialog.show({
@@ -179,6 +184,27 @@
             getCatGradeString(id) {
                 const val = this.classCalculatorObject.getCatGrade(id);
                 return val.toLocaleString('en', { style: 'percent', minimumFractionDigits: 2 });
+            },
+            editClassName() {
+                this.$q.dialog({
+                    title: this.$t('edit_class_details'),
+                    message: this.$t('class_name'),
+                    prompt: {
+                        model: this.classInfo.name,
+                        type: 'text',
+                    },
+                    cancel: true,
+                    persistent: false,
+                })
+                    .onOk((data) => {
+                        this.setClassName([{ classid: this.classInfo.id }, { name: data }]).catch((err) => {
+                            this.$q.dialog({
+                                title: this.$t('invalid_submission'),
+                                message: err,
+                                persistent: false,
+                            });
+                        });
+                    });
             },
         },
         mounted() {
