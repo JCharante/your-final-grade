@@ -1,6 +1,16 @@
 <template>
     <q-page>
         <div class="q-pa-md" style="width: 100%; max-width: 500px; margin: auto;">
+            <div class="row"
+                 v-if="$q.platform.is.desktop"
+                 style="padding-bottom: 10px;">
+                <div class="col">
+                    <q-btn icon="arrow_left"
+                           flat
+                           @click="$router.push('/')"
+                           :label="$t('back_to_list_of_classes')"/>
+                </div>
+            </div>
             <q-list bordered>
                 <q-item>
                     <q-item-section>

@@ -58,4 +58,5 @@ export default {
     explain_lowest_possible_grade_explanation: 'This is the grade that you\'ll receive if you get a 0% on all assignments that are yet to be graded.',
     explain_current_grade_explanation: 'This is "your current grade" that most systems like Canvas would show you.',
     explain_highest_possible_grade_explanation: 'This is the grade that you\'ll receieve if you get a 100% on all assignments that are yet to be graded.',
+    back_to_list_of_classes: 'Back to list of classes',
 };
