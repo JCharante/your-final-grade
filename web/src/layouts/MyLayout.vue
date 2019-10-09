@@ -90,12 +90,21 @@
                     </q-card>
                 </div>
                 <div class="col"></div>
-                <div class="col-1 row justify-start">
-                    <q-btn v-if="isProbablySignedIn"
-                           flat
-                           @click="logout().then($router.push('/login'))"
-                           color="accent"
-                           icon="exit_to_app">{{ $t('logout') }}</q-btn>
+                <div class="col-2 row justify-start items-end">
+                    <q-card flat>
+                        <q-card-section>
+                            <q-toggle v-if="isProbablySignedIn"
+                                      v-model="enableOnlineSync"
+                                      :label="$t('enable_online_sync')"/>
+                        </q-card-section>
+                        <q-card-section>
+                            <q-btn v-if="isProbablySignedIn"
+                                   flat
+                                   @click="logout().then($router.push('/login'))"
+                                   color="accent"
+                                   icon="exit_to_app">{{ $t('logout') }}</q-btn>
+                        </q-card-section>
+                    </q-card>
                 </div>
             </div>
         </q-drawer>
@@ -144,6 +153,7 @@
                 enus: ENUS,
                 zhhans: ZHHANS,
                 router: this.$router,
+                enableOnlineSync: false,
             };
         },
     };
