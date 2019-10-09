@@ -1,5 +1,5 @@
 <template>
-    <q-layout view="lHh Lpr lFf">
+    <q-layout view="hHh Lpr lFf">
         <q-header elevated>
             <q-toolbar>
                 <q-btn v-if="$router.currentRoute.name === 'ClassView'" flat round dense icon="clear" @click="$router.push('/')"/>
@@ -18,9 +18,81 @@
         </q-header>
 
         <q-drawer v-model="drawerLeft"
-                  content-class="bg-secondary text-white"
-                    elevated>
-            <q-btn v-if="isProbablySignedIn" flat @click="logout().then($router.push('/login'))" icon="exit_to_app">{{ $t('logout') }}</q-btn>
+                  :breakpoint="500"
+                  :width="250"
+                  show-if-above
+                  content-class="">
+            <div class="column" style="height: 100%">
+                <div class="col" style="margin-top: 0px;">
+                    <q-card flat>
+                        <q-card-section class="text-center">
+                            <div class="text-h6">Your Final Grade</div>
+                            <div class="text-subtitle2">A tool built with love by</div>
+                            <div class="text-subtitle2">(<a href="https://jcharante.com">Jyan</a>, Jack, and James)</div>
+                        </q-card-section>
+
+                        <q-separator dark inset />
+
+                        <q-card-section>
+                            <div class="text-center">
+                                Our goal is to create the 🔥🔥 ultimate 🔥🔥 final 💪 grade 💯 calculator 🧮 for students 👩‍🎓  🎉
+                            </div>
+                        </q-card-section>
+                        <q-card-section>
+                            <q-list dense>
+                                <q-item-label header>Feature Roadmap:</q-item-label>
+                                <q-item>
+                                    <q-item-section avatar>
+                                        <q-icon name="check_box"/>
+                                    </q-item-section>
+                                    <q-item-section>
+                                        <q-item-label>Offline Only Mode</q-item-label>
+                                    </q-item-section>
+                                    <q-item-section avatar>
+                                        <q-icon name="cloud_off"/>
+                                    </q-item-section>
+                                </q-item>
+                                <q-item>
+                                    <q-item-section avatar>
+                                        <q-icon name="check_box_outline_blank"/>
+                                    </q-item-section>
+                                    <q-item-section>
+                                        <q-item-label>Sync Online</q-item-label>
+                                    </q-item-section>
+                                    <q-item-section avatar>
+                                        <q-btn icon="plus_one" flat dense/>
+                                    </q-item-section>
+                                </q-item>
+                                <q-item>
+                                    <q-item-section avatar>
+                                        <q-icon name="check_box_outline_blank"/>
+                                    </q-item-section>
+                                    <q-item-section>
+                                        <q-item-label>Dark Mode</q-item-label>
+                                    </q-item-section>
+                                    <q-item-section avatar>
+                                        <q-btn icon="plus_one" flat dense/>
+                                    </q-item-section>
+                                </q-item>
+                            </q-list>
+                        </q-card-section>
+                        <q-separator insert dark/>
+                        <q-card-section>
+                            <div class="text-center">
+                                Found a bug? Have feature suggestions? Do we not support your grading system? Email Jyan at yfg@jcharante.com
+                            </div>
+                        </q-card-section>
+                    </q-card>
+                </div>
+                <div class="col"></div>
+                <div class="col-1 row justify-start">
+                    <q-btn v-if="isProbablySignedIn"
+                           flat
+                           @click="logout().then($router.push('/login'))"
+                           color="accent"
+                           icon="exit_to_app">{{ $t('logout') }}</q-btn>
+                </div>
+            </div>
         </q-drawer>
 
         <q-page-container>
