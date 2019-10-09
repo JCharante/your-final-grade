@@ -110,6 +110,7 @@
         computed: {
             ...mapGetters([
                 'getClassById',
+                'getLocale',
             ]),
             classInfo() {
                 return this.getClassById(this.classid);
@@ -146,6 +147,9 @@
             },
         },
         methods: {
+            ...mapActions([
+                'setPageTitle',
+            ]),
             addGrade() {
                 this.$refs.gradeDialog.show({
                     editExisting: false,
@@ -175,6 +179,14 @@
             getCatGradeString(id) {
                 const val = this.classCalculatorObject.getCatGrade(id);
                 return val.toLocaleString('en', { style: 'percent', minimumFractionDigits: 2 });
+            },
+        },
+        mounted() {
+            this.setPageTitle({ name: this.$t('classes') });
+        },
+        watch: {
+            getLocale(val) {
+                this.setPageTitle({ name: this.$t('classes') });
             },
         },
     };

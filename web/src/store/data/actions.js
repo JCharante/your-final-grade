@@ -43,3 +43,7 @@ export function setGrade({ commit }, [{ classid, id }, gradeObj]) {
         resolve();
     });
 }
+
+export function setClassName({ commit }, [{ classid }, { name }]) {
+    return new Promise();
+}

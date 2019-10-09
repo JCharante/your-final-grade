@@ -33,6 +33,7 @@
 
 
 <script>
+    import { mapActions } from 'vuex';
     import { Notify } from 'quasar';
     import axios, { axiosInstance } from '../boot/axios';
 
@@ -47,6 +48,9 @@
             };
         },
         methods: {
+            ...mapActions([
+                'setPageTitle',
+            ]),
             signin() {
                 axiosInstance.post('/', { requestType: 'login', username: this.username, password: this.password })
                     .then((response) => {
@@ -95,6 +99,9 @@
                         // console.error(err);
                     });
             },
+        },
+        mounted() {
+            this.setPageTitle({ name: 'Your Final Grade' });
         },
     };
 </script>

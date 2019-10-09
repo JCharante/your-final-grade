@@ -31,6 +31,7 @@
             ...mapGetters([
                 'getClassIds',
                 'getClassById',
+                'getLocale',
             ]),
         },
         methods: {
@@ -62,6 +63,11 @@
         },
         mounted() {
             this.setPageTitle({ name: this.$t('classes') });
+        },
+        watch: {
+            getLocale(val) {
+                this.setPageTitle({ name: this.$t('classes') });
+            },
         },
     };
 </script>

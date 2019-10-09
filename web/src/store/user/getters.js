@@ -9,3 +9,7 @@ export function getDisplayName(state) {
 export function isProbablySignedIn(state) {
     return state.sessionKey.length > 0;
 }
+
+export function getLocale(state) {
+    return state.locale;
+}
