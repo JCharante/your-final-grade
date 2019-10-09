@@ -49,4 +49,5 @@ export default {
     not_yet_graded: 'Not yet graded',
     are_you_sure: 'Are you sure?',
     this_will_permanently_delete_the_grade: 'This will permanently delete the grade',
+    this_will_permanently_delete_the_category: 'This will permanently delete the category AND associated grades',
 };

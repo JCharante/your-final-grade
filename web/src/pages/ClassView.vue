@@ -202,8 +202,8 @@
             },
             clickDeleteCategory(categoryId) {
                 this.$q.dialog({
-                    title: '',
-                    message: '',
+                    title: this.$t('are_you_sure'),
+                    message: this.$t('this_will_permanently_delete_the_category'),
                     cancel: true,
                 })
                     .onOk((data) => {
