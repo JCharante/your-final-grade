@@ -12,16 +12,17 @@
                 <q-input v-model.number="weight"
                          :min="0"
                          type="number"
-                         max="100"
-                         :label="$t('category_weight')"/>
+                         :max="100"
+                         :label="$t('category_weight') + ' %'"/>
+                <q-input v-model.number="maxPercent"
+                         :min="0"
+                         type="number"
+                         :label="$t('max_percent') + ' %'"/>
+                <q-separator/>
                 <q-input v-model.number="droppedGrades"
                          :min="0"
                          type="number"
                          :label="$t('num_dropped_grades')"/>
-                <q-input v-model.number="maxPercent"
-                         :min="0"
-                         type="number"
-                         :label="$t('max_percent')"/>
                 <q-separator/>
                 <q-toggle v-model="buildUp"
                           :label="$t('toggle_build_up')"/>
