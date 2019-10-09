@@ -21,3 +21,9 @@ export function setClassName(state, [{ classid }, { name }]) {
         Vue.set(state.classes[classid], 'name', name);
     }
 }
+
+export function deleteGrade(state, [{ classid }, { id }]) {
+    if (classid in state.classes) {
+        Vue.delete(state.classes[classid].grades, id);
+    }
+}

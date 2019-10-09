@@ -50,3 +50,9 @@ export function setClassName({ commit }, [{ classid }, { name }]) {
         resolve();
     });
 }
+
+export function deleteGrade({ commit }, [{ classid }, { id }]) {
+    return new Promise((resolve, reject) => {
+        commit('deleteGrade', [{ classid }, { id }]);
+    });
+}

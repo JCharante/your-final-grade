@@ -79,7 +79,8 @@
                                     @click="editGrade(grade.id)"/>
                         </q-item-section>
                         <q-item-section avatar>
-                            <q-icon name="delete"/>
+                            <q-icon name="delete"
+                                    @click="clickDeleteGrade(grade.id)"/>
                         </q-item-section>
                     </q-item>
                 </q-list>
@@ -160,6 +161,7 @@
             ...mapActions([
                 'setPageTitle',
                 'setClassName',
+                'deleteGrade',
             ]),
             addGrade() {
                 this.$refs.gradeDialog.show({
@@ -186,6 +188,16 @@
                     classid: this.classid,
                     gradeId,
                 });
+            },
+            clickDeleteGrade(gradeId) {
+                this.$q.dialog({
+                    title: this.$t('are_you_sure'),
+                    message: this.$t('this_will_permanently_delete_the_grade'),
+                    cancel: true,
+                })
+                    .onOk((data) => {
+                        this.deleteGrade([{ classid: this.classid }, { id: gradeId }]);
+                    });
             },
             getCatGradeInContextString(id) {
                 const maxCatGrade = (this.classInfo.categories[id].maxPercent / 100).toLocaleString('en', { style: 'percent', minimumFractionDigits: 2 });
