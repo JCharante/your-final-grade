@@ -2,7 +2,8 @@
     <q-layout view="lHh Lpr lFf">
         <q-header elevated>
             <q-toolbar>
-                <q-btn flat @click="drawerLeft = !drawerLeft" round dense icon="menu" />
+                <q-btn v-if="$router.currentRoute.name === 'ClassView'" flat round dense icon="clear" @click="$router.push('/')"/>
+                <q-btn v-else @click="drawerLeft = !drawerLeft" flat round dense icon="menu" />
                 <q-toolbar-title>
                     {{ pageTitle }}
                 </q-toolbar-title>
@@ -62,6 +63,7 @@
                 drawerLeft: false,
                 enus: ENUS,
                 zhhans: ZHHANS,
+                router: this.$router,
             };
         },
     };
