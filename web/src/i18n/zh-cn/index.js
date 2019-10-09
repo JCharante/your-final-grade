@@ -54,4 +54,8 @@ export default {
     enable_online_sync: '打开在线同步',
     delete: '删除',
     edit: '编辑',
+    explanation: '说明',
+    explain_lowest_possible_grade_explanation: '这是假设你在所有未批改的作业中全部获得0%后计算出的成绩。',
+    explain_current_grade_explanation: '这是你的现有成绩，只计算了所有批改过的作业',
+    explain_highest_possible_grade_explanation: '这是假设你在所有未批改的作业中全部获得100%后计算出的成绩。',
 };
