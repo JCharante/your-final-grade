@@ -1,6 +1,6 @@
 <template>
     <q-page>
-        <div class="q-pa-md" style="width: 100%; max-width: 400px">
+        <div class="q-pa-md" style="width: 100%; max-width: 500px; margin: auto;">
             <q-list bordered>
                 <q-item>
                     <q-item-section>
