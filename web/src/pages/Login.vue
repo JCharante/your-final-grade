@@ -27,6 +27,18 @@
                        @click="creatingAccount = !creatingAccount"
                        color="secondary"/>
             </div>
+            <div class="col-12">
+                <hr style="margin-top: 60px; margin-bottom: 60px;">
+                <div class="row justify-center">
+                    <q-btn outline
+                           color="primary"
+                           @click="continueWithoutAccount"
+                           :label="$t('or_continue_without_account')"/>
+                </div>
+                <p class="text-center text-caption" style="margin-top: 20px;">
+                    {{ $t('continue_without_account_notice') }}
+                </p>
+            </div>
         </div>
     </q-page>
 </template>
@@ -120,6 +132,10 @@
                         }
                         // console.error(err);
                     });
+            },
+            continueWithoutAccount() {
+                this.$store.dispatch('setSessionDoc', { sessionKey: 'unregistered' }).then(this.$router.push('/'));
+                this.$store.dispatch('setDisplayName', { displayName: 'Unregistered User' });
             },
         },
         computed: {

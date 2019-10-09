@@ -59,4 +59,6 @@ export default {
     explain_current_grade_explanation: 'This is "your current grade" that most systems like Canvas would show you.',
     explain_highest_possible_grade_explanation: 'This is the grade that you\'ll receieve if you get a 100% on all assignments that are yet to be graded.',
     back_to_list_of_classes: 'Back to list of classes',
+    or_continue_without_account: 'Or continue without an account',
+    continue_without_account_notice: '(You will not be able to use Cloud Sync)',
 };
