@@ -33,7 +33,7 @@
 
 
 <script>
-    import { mapActions } from 'vuex';
+    import { mapGetters, mapActions } from 'vuex';
     import { Notify } from 'quasar';
     import { axiosInstance } from '../boot/axios';
 
@@ -122,8 +122,18 @@
                     });
             },
         },
+        computed: {
+            ...mapGetters([
+                'getLocale',
+            ]),
+        },
         mounted() {
-            this.setPageTitle({ name: 'Your Final Grade' });
+            this.setPageTitle({ name: this.$t('your_final_grade') });
+        },
+        watch: {
+            getLocale(val) {
+                this.setPageTitle({ name: this.$t('your_final_grade') });
+            },
         },
     };
 </script>
