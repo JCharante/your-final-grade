@@ -54,11 +54,28 @@
                             <q-item-label caption>{{ getCatGradeInContextString(category.id) }}</q-item-label>
                         </q-item-section>
                         <q-item-section avatar>
-                            <q-icon name="edit"
-                                    @click="editCategory(category.id)"/>
-                        </q-item-section>
-                        <q-item-section avatar>
-                            <q-icon name="delete" @click="clickDeleteCategory(category.id)"/>
+                            <q-btn icon="more_vert" flat>
+                                <q-menu>
+                                    <q-list dense>
+                                        <q-item clickable @click="editCategory(category.id)">
+                                            <q-item-section avatar>
+                                                <q-icon name="edit"/>
+                                            </q-item-section>
+                                            <q-item-section>
+                                                <q-item-label>{{ $t('edit') }}</q-item-label>
+                                            </q-item-section>
+                                        </q-item>
+                                        <q-item clickable @click="clickDeleteCategory(category.id)">
+                                            <q-item-section avatar>
+                                                <q-icon name="delete"/>
+                                            </q-item-section>
+                                            <q-item-section>
+                                                <q-item-label>{{ $t('delete') }}</q-item-label>
+                                            </q-item-section>
+                                        </q-item>
+                                    </q-list>
+                                </q-menu>
+                            </q-btn>
                         </q-item-section>
                     </q-item>
                     <q-item v-for="grade in Object.values(classInfo.grades).filter(g => g.categoryId === category.id)"
@@ -76,12 +93,28 @@
                             <q-item-label>{{ grade.name }}</q-item-label>
                         </q-item-section>
                         <q-item-section avatar>
-                            <q-icon name="edit"
-                                    @click="editGrade(grade.id)"/>
-                        </q-item-section>
-                        <q-item-section avatar>
-                            <q-icon name="delete"
-                                    @click="clickDeleteGrade(grade.id)"/>
+                            <q-btn icon="more_vert" flat>
+                                <q-menu>
+                                    <q-list dense>
+                                        <q-item clickable @click="editGrade(grade.id)">
+                                            <q-item-section avatar>
+                                                <q-icon name="edit"/>
+                                            </q-item-section>
+                                            <q-item-section>
+                                                <q-item-label>{{ $t('edit') }}</q-item-label>
+                                            </q-item-section>
+                                        </q-item>
+                                        <q-item clickable @click="clickDeleteGrade(grade.id)">
+                                            <q-item-section avatar>
+                                                <q-icon name="delete"/>
+                                            </q-item-section>
+                                            <q-item-section>
+                                                <q-item-label>{{ $t('delete') }}</q-item-label>
+                                            </q-item-section>
+                                        </q-item>
+                                    </q-list>
+                                </q-menu>
+                            </q-btn>
                         </q-item-section>
                     </q-item>
                 </q-list>

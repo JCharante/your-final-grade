@@ -52,4 +52,6 @@ export default {
     this_will_permanently_delete_the_category: '这将永久删除这个类别和它附属的成绩',
     this_will_permanently_delete_the_class: '你确定要删除这门课程吗？这将会删除你所有创建的类别以及成绩。',
     enable_online_sync: '打开在线同步',
+    delete: '删除',
+    edit: '编辑',
 };

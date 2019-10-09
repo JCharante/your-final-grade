@@ -52,4 +52,6 @@ export default {
     this_will_permanently_delete_the_category: 'This will permanently delete the category AND associated grades',
     this_will_permanently_delete_the_class: 'Are you sure you want to delete this class? This will delete all the entered categories and grades.',
     enable_online_sync: 'Enable Online Sync',
+    delete: 'Delete',
+    edit: 'Edit',
 };
