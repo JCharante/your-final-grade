@@ -40,7 +40,7 @@ export default {
     edit_class_details: 'Edit Class Details',
     your_final_grade: 'Your Final Grade',
     a_tool_built_with_love_by: 'A tool built with love by',
-    our_goal: 'Our goal is to create the 🔥🔥 ultimate 🔥🔥 final 💪 grade 💯 calculator 🧮 for students🎉',
+    our_goal: 'Our goal is to create the 🔥🔥 ultimate 🔥🔥 final 💪 grade 💯 calculator 🧮 for students🎉👩‍🎓',
     feature_roadmap: 'Feature Roadmap',
     offline_only_mode: 'Offline Only Mode',
     sync_online: 'Sync Online',
