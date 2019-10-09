@@ -33,4 +33,6 @@ export default {
     display_name: '呢称',
     need_an_account: '需要一个账号？',
     already_have_account: '我已有账号',
+    add_new_class: '添加一门新的课程',
+    invalid_submission: '提交错误',
 };

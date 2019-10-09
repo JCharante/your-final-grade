@@ -40,8 +40,8 @@
             ]),
             fabClick() {
                 this.$q.dialog({
-                    title: 'Create entry for new class',
-                    message: 'Name of class',
+                    title: this.$t('add_new_class'),
+                    message: this.$t('class_name'),
                     prompt: {
                         model: '',
                         type: 'text',
@@ -52,7 +52,7 @@
                     .onOk((data) => {
                         this.addClass({ name: data }).catch((err) => {
                             this.$q.dialog({
-                                title: 'Invalid Submission',
+                                title: this.$t('invalid_submission'),
                                 message: err,
                                 persistent: false,
                             });

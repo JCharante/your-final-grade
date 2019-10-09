@@ -33,4 +33,6 @@ export default {
     display_name: 'Display Name',
     need_an_account: 'Need an account?',
     already_have_account: 'I already have an account',
+    add_new_class: 'Add a new class',
+    invalid_submission: 'Invalid Submission',
 };
