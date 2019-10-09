@@ -2,7 +2,7 @@
     <q-dialog v-model="vmodel" persistent>
         <q-card style="max-width: 100%; width: 400px">
             <q-card-section>
-                <div class="text-h6">{{ $t('set_grade_properties') }}</div>
+                <div class="text-h6">{{ $t('set_category_properties') }}</div>
             </q-card-section>
             <q-card-section>
                 <q-input autofocus
@@ -13,27 +13,38 @@
                          :min="0"
                          type="number"
                          :max="100"
+                         suffix="%"
+                         :hint="$t('explain_category_weight')"
                          :label="$t('category_weight') + ' %'"/>
                 <q-input v-model.number="maxPercent"
                          :min="0"
                          type="number"
+                         suffix="%"
+                         :hint="$t('explain_max_percent')"
                          :label="$t('max_percent') + ' %'"/>
+                <div style="margin-top: 40px;"></div>
                 <q-separator/>
                 <q-input v-model.number="droppedGrades"
                          :min="0"
                          type="number"
+                         :hint="$t('explain_num_dropped')"
                          :label="$t('num_dropped_grades')"/>
+                <div style="margin-top: 20px;"></div>
                 <q-separator/>
-                <q-toggle v-model="buildUp"
-                          :label="$t('toggle_build_up')"/>
+                <q-field borderless>
+                    <q-toggle v-model="buildUp"
+                              :label="$t('toggle_build_up')"/>
+                </q-field>
                 <q-input v-if="!buildUp"
                          v-model.number="maxPoints"
                          :min="0"
                          :label="$t('max_points')"/>
-                <q-separator/>
-                <q-toggle v-model="topWorthMoreEnabled"
-                          :label="$t('toggle_top_worth_more')"
-                          :disable="!topWorthMoreEnabled && !buildUp"/>
+                <q-field :hint="$t('explain_top_worth_more')" borderless>
+                    <q-toggle v-model="topWorthMoreEnabled"
+                              :label="$t('toggle_top_worth_more')"
+                              :disable="!topWorthMoreEnabled && !buildUp"/>
+                </q-field>
+                <div v-if="topWorthMoreEnabled" style="margin-top: 35px;"></div>
                 <q-input v-if="topWorthMoreEnabled"
                          v-model.number="topWorthMore"
                          :label="$t('top_worth_more_num')"/>

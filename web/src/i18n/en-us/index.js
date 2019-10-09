@@ -63,4 +63,8 @@ export default {
     continue_without_account_notice: '(You will not be able to use Cloud Sync)',
     explain_max_points: 'The maximum amount of points you can get excluding extra credit.',
     explain_points_earned: 'The amount of points you actually got.',
+    explain_category_weight: 'The percentage of this category in overall grade',
+    explain_num_dropped: 'The number of assignments you can drop in this category',
+    explain_max_percent: 'The maximum value of weight. Usually used if extra credit is capped and cannot the weight cannot be exceeded.',
+    explain_top_worth_more: 'When assignments with a higher grade are counted differently (usually more) from assignments with lower grades',
 };

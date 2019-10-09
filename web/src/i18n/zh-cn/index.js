@@ -60,4 +60,8 @@ export default {
     explain_highest_possible_grade_explanation: '这是假设你在所有未批改的作业中全部获得100%后计算出的成绩。',
     explain_max_points: '你能获得的最高得分，不包括额外加分。',
     explain_points_earned: '你的实际得分。',
+    explain_category_weight: '该类别在总成绩中的占比',
+    explain_num_dropped: '该类别中可以被舍弃的最低分数量',
+    explain_max_percent: '该类别的最大占比。意味着即便获得了额外得分，总占比也不会超过最大占比。',
+    explain_top_worth_more: '得分高的项目与得分底的项目的得分占比不同。通常情况下得分高的占比高。',
 };
