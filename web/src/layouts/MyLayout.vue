@@ -22,9 +22,9 @@
                   :width="250"
                   show-if-above
                   content-class="">
-            <div class="column" style="height: 100%">
+            <div :class="{column: true, 'bg-grey-10': getDarkModeEnabled}" style="height: 100%">
                 <div class="col" style="margin-top: 0px;">
-                    <q-card flat>
+                    <q-card flat :dark="getDarkModeEnabled">
                         <q-card-section class="text-center">
                             <div class="text-h6">{{ $t('your_final_grade') }}</div>
                             <div class="text-subtitle2">{{ $t('a_tool_built_with_love_by') }}</div>
@@ -91,10 +91,12 @@
                 </div>
                 <div class="col"></div>
                 <div class="col-3 row justify-start items-end">
-                    <q-card flat>
+                    <q-card flat :dark="getDarkModeEnabled" :class="{'bg-grey-10': getDarkModeEnabled}">
                         <q-card-section>
                             <q-toggle v-if="isProbablySignedIn"
                                       v-model="darkModeEnabled"
+                                      :dark="getDarkModeEnabled"
+                                      disable
                                       :label="$t('dark_mode')"/>
                         </q-card-section>
                         <q-card-section>
@@ -107,6 +109,7 @@
                                    flat
                                    @click="logout().then($router.push('/login'))"
                                    color="accent"
+                                   :dark="getDarkModeEnabled"
                                    icon="exit_to_app">{{ $t('logout') }}</q-btn>
                         </q-card-section>
                     </q-card>

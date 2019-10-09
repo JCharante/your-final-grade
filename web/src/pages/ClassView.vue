@@ -168,6 +168,7 @@
             ...mapGetters([
                 'getClassById',
                 'getLocale',
+                'getDarkModeEnabled',
             ]),
             classInfo() {
                 return this.getClassById(this.classid);

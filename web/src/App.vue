@@ -1,11 +1,11 @@
 <template>
-    <div id="q-app">
+    <div id="q-app" :class="{'bg-grey-10': getDarkModeEnabled}">
         <router-view />
     </div>
 </template>
 
 <script>
-    import { mapActions } from 'vuex';
+    import { mapActions, mapGetters } from 'vuex';
     import ENUS from 'quasar/lang/en-us';
     import ZHHANS from 'quasar/lang/zh-hans';
 
@@ -17,6 +17,11 @@
                 'saveDataStore',
                 'saveAppStore',
                 'setLocale',
+            ]),
+        },
+        computed: {
+            ...mapGetters([
+                'getDarkModeEnabled',
             ]),
         },
         mounted() {
