@@ -35,7 +35,7 @@
 <script>
     import { mapActions } from 'vuex';
     import { Notify } from 'quasar';
-    import axios, { axiosInstance } from '../boot/axios';
+    import { axiosInstance } from '../boot/axios';
 
     export default {
         name: 'Login',
@@ -65,12 +65,23 @@
                         this.$store.dispatch('setDisplayName', response.data);
                     })
                     .catch((err) => {
-                        if (err.response.status === 400) {
+                        switch (err.response.status) {
+                        case 400:
                             Notify.create({
-                                message: "(」゜ロ゜)」 Invalid Credentials",
+                                message: this.$t('try_different_username'),
                                 timeout: 2000,
                                 color: 'red',
                             });
+                            break;
+                        case 403:
+                            Notify.create({
+                                message: this.$t('invalid_credentials'),
+                                timeout: 200,
+                                color: 'red',
+                            });
+                            break;
+                        default:
+                            break;
                         }
                         // console.error(err);
                     });
@@ -89,12 +100,23 @@
                         this.$store.dispatch('setDisplayName', response.data);
                     })
                     .catch((err) => {
-                        if (err.response.status === 400) {
+                        switch (err.response.status) {
+                        case 400:
                             Notify.create({
-                                message: "Try a different username ┗(•̀へ •́ ╮ )",
+                                message: this.$t('try_different_username'),
                                 timeout: 2000,
                                 color: 'red',
                             });
+                            break;
+                        case 403:
+                            Notify.create({
+                                message: this.$t('invalid_credentials'),
+                                timeout: 200,
+                                color: 'red',
+                            });
+                            break;
+                        default:
+                            break;
                         }
                         // console.error(err);
                     });

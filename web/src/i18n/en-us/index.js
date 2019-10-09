@@ -35,4 +35,6 @@ export default {
     already_have_account: 'I already have an account',
     add_new_class: 'Add a new class',
     invalid_submission: 'Invalid Submission',
+    try_different_username: 'Try a different username ┗(•̀へ •́ ╮ )',
+    invalid_credentials: '(」°ロ°)」 Invalid Credentials ',
 };

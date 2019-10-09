@@ -35,4 +35,6 @@ export default {
     already_have_account: '我已有账号',
     add_new_class: '添加一门新的课程',
     invalid_submission: '提交错误',
+    try_different_username: '用户名已被使用 ┗(•̀へ •́ ╮ )',
+    invalid_credentials: '(」°ロ°)」 用户名或密码错误',
 };
