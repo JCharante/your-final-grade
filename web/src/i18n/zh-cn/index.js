@@ -46,4 +46,5 @@ export default {
     sync_online: '在线同步',
     dark_mode: '夜间模式',
     cta: '找到了bug？想要什么有趣的功能？还是我们的网站不支持你学校的打分系统？请给张坚发送邮件：yfg@jcharante.com',
+    not_yet_graded: '尚未批改',
 };

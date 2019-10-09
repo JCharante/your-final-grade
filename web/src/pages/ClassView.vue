@@ -63,7 +63,12 @@
                             :key="grade.id">
                         <q-item-section>
                             <q-item-label>{{ $t('assignment') }}:</q-item-label>
-                            <q-item-label caption>{{ $t('points') }}: {{ grade.pointsEarned }}/{{ grade.maxPoints }}</q-item-label>
+                            <q-item-label caption v-if="!grade.notYetGraded">
+                                {{ $t('points') }}: {{ grade.pointsEarned }}/{{ grade.maxPoints }}
+                            </q-item-label>
+                            <q-item-label caption v-else>
+                                {{ $t('not_yet_graded') }}
+                            </q-item-label>
                         </q-item-section>
                         <q-item-section top>
                             <q-item-label>{{ grade.name }}</q-item-label>
