@@ -146,13 +146,13 @@
                 return new ClassCalculator(this.dataForCalculator);
             },
             currentGrade() {
-                return this.classCalculatorObject.getCurrentGrade();
+                return (this.classCalculatorObject.getCurrentGrade() / 100).toLocaleString('en', { style: 'percent', minimumFractionDigits: 2 });
             },
             highestGrade() {
-                return this.classCalculatorObject.getHighestGrade();
+                return (this.classCalculatorObject.getHighestGrade() / 100).toLocaleString('en', { style: 'percent', minimumFractionDigits: 2 });
             },
             lowestGrade() {
-                return this.classCalculatorObject.getLowestGrade();
+                return (this.classCalculatorObject.getLowestGrade() / 100).toLocaleString('en', { style: 'percent', minimumFractionDigits: 2 });
             },
         },
         methods: {
