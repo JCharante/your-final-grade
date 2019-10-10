@@ -23,7 +23,7 @@
                   :width="250"
                   show-if-above
                   content-class="">
-            <div :class="{column: true, 'bg-grey-10': getDarkModeEnabled}" style="height: 100%">
+            <div :class="{column: true, 'bg-grey-10': getDarkModeEnabled}" style="height: 99%">
                 <div class="col" style="margin-top: 0px;">
                     <q-card flat :dark="getDarkModeEnabled">
                         <q-card-section class="text-center">
