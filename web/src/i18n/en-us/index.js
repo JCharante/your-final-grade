@@ -71,4 +71,5 @@ export default {
     explain_top_worth_value: 'Weight in percentage of each top assignment',
     explain_bot_worth_value: 'Weight in percentage of the rest of the assignments',
     signin_with_google: 'Sign in with Google',
+    share_site_with_friend: 'Share this site with a friend',
 };

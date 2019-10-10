@@ -14,6 +14,7 @@
                 >
                     {{ $i18n.locale === 'zh-cn' ? enus.nativeName : zhhans.nativeName }}
                 </q-btn>
+                <q-btn flat icon="share" @click="rightDrawer = !rightDrawer"/>
             </q-toolbar>
         </q-header>
 
@@ -129,6 +130,24 @@
             </div>
         </q-drawer>
 
+        <q-drawer v-model="rightDrawer"
+                  side="right"
+                  show-if-above
+                  :width="250">
+            <div class="column justify-center items-center" style="height: 95%">
+                <div class="col-6">
+                    <q-card flat>
+                        <q-card-section>
+                            <p class="text-center">{{ $t('share_site_with_friend') }}</p>
+                        </q-card-section>
+                        <q-card-section>
+                            <q-img src="statics/qr-code.svg" style="width: 200px"/>
+                        </q-card-section>
+                    </q-card>
+                </div>
+            </div>
+        </q-drawer>
+
         <q-page-container>
             <router-view />
         </q-page-container>
@@ -193,6 +212,7 @@
                 lang: this.$q.lang,
                 i18n: this.$i18n,
                 drawerLeft: false,
+                rightDrawer: false,
                 enus: ENUS,
                 zhhans: ZHHANS,
                 router: this.$router,
