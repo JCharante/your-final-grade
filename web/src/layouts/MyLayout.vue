@@ -102,7 +102,7 @@
                         <q-card-section>
                             <q-toggle v-if="isProbablySignedIn"
                                       v-model="enableOnlineSync"
-                                      disable
+                                      :disable="getSessionKey === 'unregistered'"
                                       :label="$t('enable_online_sync')"/>
                         </q-card-section>
                         <q-card-section>
@@ -137,6 +137,8 @@
                 'isProbablySignedIn',
                 'pageTitle',
                 'getDarkModeEnabled',
+                'getEnableOnlineSync',
+                'getSessionKey',
             ]),
             displayVoting() {
                 return false;
@@ -149,6 +151,14 @@
                     return this.getDarkModeEnabled;
                 },
             },
+            enableOnlineSync: {
+                set(enabled) {
+                    this.setEnableOnlineSync({ enabled });
+                },
+                get() {
+                    return this.getEnableOnlineSync;
+                },
+            },
         },
         methods: {
             ...mapActions([
@@ -157,6 +167,7 @@
                 'dataLogout',
                 'setLocale',
                 'setDarkModeEnabled',
+                'setEnableOnlineSync',
             ]),
             toggleLang() {
                 const currentLocale = this.$i18n.locale;
@@ -174,7 +185,6 @@
                 enus: ENUS,
                 zhhans: ZHHANS,
                 router: this.$router,
-                enableOnlineSync: false,
             };
         },
     };

@@ -38,9 +38,10 @@ export function addCategory({ commit }, [{ classid }, categoryObj]) {
     });
 }
 
-export function modifyCategory({ commit }, [{ classid, id }, categoryObj]) {
+export function modifyCategory({ commit, dispatch, getters }, [{ classid, id }, categoryObj]) {
     return new Promise((resolve, reject) => {
         commit('setCategory', [{ classid }, { id }, categoryObj]);
+        dispatch('smartUploadDataStore');
         resolve();
     });
 }

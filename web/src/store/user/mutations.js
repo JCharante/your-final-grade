@@ -15,3 +15,7 @@ export function setLocale(state, val) {
 export function setDarkModeEnabled(state, val) {
     Vue.set(state, 'darkModeEnabled', val);
 }
+
+export function setEnableOnlineSync(state, val) {
+    Vue.set(state, 'enableOnlineSync', val);
+}

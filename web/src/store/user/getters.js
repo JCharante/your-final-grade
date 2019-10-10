@@ -17,3 +17,7 @@ export function getLocale(state) {
 export function getDarkModeEnabled(state) {
     return state.darkModeEnabled;
 }
+
+export function getEnableOnlineSync(state) {
+    return state.enableOnlineSync;
+}

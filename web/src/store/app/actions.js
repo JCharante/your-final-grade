@@ -1,4 +1,5 @@
 import { LocalStorage } from "quasar";
+import { axiosInstance } from '../../boot/axios';
 
 export function appLogout({ commit, dispatch }) {
     return new Promise((resolve, reject) => {
@@ -15,5 +16,34 @@ export function setPageTitle({ commit }, { name }) {
     return new Promise((resolve, reject) => {
         commit('setPageTitle', { name });
         resolve();
+    });
+}
+
+export function smartUploadDataStore({ dispatch, getters }) {
+    return new Promise((resolve, reject) => {
+        if (getters.getSessionKey.length === 0 // no session key stored
+            || getters.getSessionKey === 'unregistered' // user is on demo account
+            || !getters.getEnableOnlineSync) { // user has disabled online sync
+            return;
+        }
+        dispatch('uploadDataStore');
+    });
+}
+
+export function uploadDataStore({ rootState, getters }) {
+    return new Promise((resolve, reject) => {
+        if (getters.getSessionKey.length === 0 || getters.getSessionKey === 'unregistered') {
+            reject();
+            return;
+        }
+        axiosInstance.post('/', {
+            sessionKey: getters.getSessionKey,
+            requestType: 'updateStore',
+            dataStore: {
+                app: rootState.app,
+                data: rootState.data,
+                user: rootState.user,
+            },
+        });
     });
 }

@@ -6,6 +6,7 @@ function baseGen() {
         sessionKey: '',
         locale: 'en-us',
         darkModeEnabled: false,
+        enableOnlineSync: false,
     };
 }
 
