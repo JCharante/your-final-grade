@@ -17,6 +17,7 @@
                 'saveDataStore',
                 'saveAppStore',
                 'setLocale',
+                'smartRetrieveDataStore',
             ]),
         },
         computed: {
@@ -30,6 +31,8 @@
             this.$q.lang.set(newLocale === 'en-us' ? ENUS : ZHHANS);
 
             this.$q.addressbarColor.set();
+
+            this.smartRetrieveDataStore();
 
             window.addEventListener('beforeunload', () => {
                 this.saveUserStore();

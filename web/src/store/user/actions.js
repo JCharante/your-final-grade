@@ -10,7 +10,6 @@ export function userLogout({ commit, dispatch }) {
     return new Promise((resolve, reject) => {
         commit('setSessionKey', '');
         commit('setDisplayName', '');
-        commit('setEnableOnlineSync', false);
         dispatch('saveUserStore');
         resolve();
     });
@@ -37,10 +36,12 @@ export function setSessionDoc({ commit, dispatch }, { sessionKey }) {
 export function setLocale({ commit, dispatch }, { locale }) {
     commit('setLocale', locale);
     dispatch('saveUserStore');
+    dispatch('smartUploadDataStore');
 }
 
-export function setDarkModeEnabled({ commit }, { enabled }) {
+export function setDarkModeEnabled({ commit, dispatch }, { enabled }) {
     commit('setDarkModeEnabled', enabled);
+    dispatch('smartUploadDataStore');
 }
 
 export function setEnableOnlineSync({ commit }, { enabled }) {

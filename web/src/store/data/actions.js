@@ -46,23 +46,26 @@ export function modifyCategory({ commit, dispatch, getters }, [{ classid, id }, 
     });
 }
 
-export function setGrade({ commit }, [{ classid, id }, gradeObj]) {
+export function setGrade({ commit, dispatch }, [{ classid, id }, gradeObj]) {
     return new Promise((resolve, reject) => {
         commit('setGrade', [{ classid }, { id }, gradeObj]);
+        dispatch('smartUploadDataStore');
         resolve();
     });
 }
 
-export function setClassName({ commit }, [{ classid }, { name }]) {
+export function setClassName({ commit, dispatch }, [{ classid }, { name }]) {
     return new Promise((resolve, reject) => {
         commit('setClassName', [{ classid }, { name }]);
+        dispatch('smartUploadDataStore');
         resolve();
     });
 }
 
-export function deleteGrade({ commit }, [{ classid }, { id }]) {
+export function deleteGrade({ commit, dispatch }, [{ classid }, { id }]) {
     return new Promise((resolve, reject) => {
         commit('deleteGrade', [{ classid }, { id }]);
+        dispatch('smartUploadDataStore');
     });
 }
 
@@ -74,13 +77,14 @@ export function deleteGrade({ commit }, [{ classid }, { id }]) {
  * @param id
  * @returns {Promise<any>}
  */
-export function deleteCategory({ state, commit }, [{ classid }, { id }]) {
+export function deleteCategory({ state, commit, dispatch }, [{ classid }, { id }]) {
     return new Promise((resolve, reject) => {
         if (classid in state.classes) {
             Object.values(state.classes[classid].grades).filter(grade => grade.categoryId === id).forEach((grade) => {
                 commit('deleteGrade', [{ classid }, { id: grade.id }]);
             });
             commit('deleteCategory', [{ classid }, { id }]);
+            dispatch('smartUploadDataStore');
             resolve();
         } else {
             reject();

@@ -37,3 +37,7 @@ export function deleteCategory(state, [{ classid }, { id }]) {
 export function wipeStore(state) {
     Vue.set(state, 'classes', {});
 }
+
+export function recoverDataFromAnotherStore(state, otherDataState) {
+    Vue.set(state, 'classes', otherDataState.classes);
+}

@@ -19,3 +19,9 @@ export function setDarkModeEnabled(state, val) {
 export function setEnableOnlineSync(state, val) {
     Vue.set(state, 'enableOnlineSync', val);
 }
+
+export function recoverUserFromAnotherStore(state, otherStore) {
+    Vue.set(state, 'darkModeEnabled', otherStore.darkModeEnabled);
+    Vue.set(state, 'enableOnlineSync', otherStore.enableOnlineSync);
+    Vue.set(state, 'locale', otherStore.locale);
+}

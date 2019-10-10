@@ -24,9 +24,11 @@ export function smartUploadDataStore({ dispatch, getters }) {
         if (getters.getSessionKey.length === 0 // no session key stored
             || getters.getSessionKey === 'unregistered' // user is on demo account
             || !getters.getEnableOnlineSync) { // user has disabled online sync
+            resolve();
             return;
         }
         dispatch('uploadDataStore');
+        resolve();
     });
 }
 
@@ -44,6 +46,44 @@ export function uploadDataStore({ rootState, getters }) {
                 data: rootState.data,
                 user: rootState.user,
             },
-        });
+        })
+            .then(resolve())
+            .catch((err) => {
+                reject(err);
+            });
+    });
+}
+
+export function smartRetrieveDataStore({ dispatch, getters }) {
+    return new Promise((resolve, reject) => {
+        if (getters.getSessionKey.length === 0 // no session key stored
+            || getters.getSessionKey === 'unregistered' // user is on demo account
+            || !getters.getEnableOnlineSync) { // user has disabled online sync
+            resolve();
+            return;
+        }
+        dispatch('retrieveDataStore');
+        resolve();
+    });
+}
+
+export function retrieveDataStore({ commit, dispatch, getters }) {
+    return new Promise((resolve, reject) => {
+        if (getters.getSessionKey.length === 0 || getters.getSessionKey === 'unregistered') {
+            reject();
+            return;
+        }
+        axiosInstance.post('/', {
+            sessionKey: getters.getSessionKey,
+            requestType: 'getStore',
+        })
+            .then((response) => {
+                console.log(response);
+                const { data, app, user } = response.data.dataStore;
+                commit('recoverDataFromAnotherStore', data);
+                commit('recoverUserFromAnotherStore', user);
+                resolve();
+            })
+            .catch(err => reject(err));
     });
 }

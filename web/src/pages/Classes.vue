@@ -38,6 +38,7 @@
             ...mapActions([
                 'setPageTitle',
                 'addClass',
+                'smartRetrieveDataStore',
             ]),
             fabClick() {
                 this.$q.dialog({
@@ -63,6 +64,7 @@
         },
         mounted() {
             this.setPageTitle({ name: this.$t('classes') });
+            this.smartRetrieveDataStore();
         },
         watch: {
             getLocale(val) {
