@@ -100,8 +100,7 @@
                                       :label="$t('dark_mode')"/>
                         </q-card-section>
                         <q-card-section>
-                            <q-toggle v-if="isProbablySignedIn"
-                                      v-model="enableOnlineSync"
+                            <q-toggle v-model="enableOnlineSync"
                                       :disable="getSessionKey === 'unregistered'"
                                       :label="$t('enable_online_sync')"/>
                         </q-card-section>

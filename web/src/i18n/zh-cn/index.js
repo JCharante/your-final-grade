@@ -58,6 +58,8 @@ export default {
     explain_lowest_possible_grade_explanation: '这是假设你在所有未批改的作业中全部获得0%后计算出的成绩。',
     explain_current_grade_explanation: '这是你的现有成绩，只计算了所有批改过的作业',
     explain_highest_possible_grade_explanation: '这是假设你在所有未批改的作业中全部获得100%后计算出的成绩。',
+    or_continue_without_account: '以游客身份继续',
+    continue_without_account_notice: '(你将无法使用在线同步功能)',
     explain_max_points: '你能获得的最高得分，不包括额外加分。',
     explain_points_earned: '你的实际得分。',
     explain_category_weight: '该类别在总成绩中的占比',
