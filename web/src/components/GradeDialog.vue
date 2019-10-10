@@ -57,7 +57,7 @@
                 classid: '',
                 categoryId: '',
                 name: '',
-                maxPoints: 0,
+                maxPoints: 100,
                 pointsEarned: 0,
                 possibleExtraCredit: 0,
                 notYetGraded: false,
@@ -134,7 +134,7 @@
                 this.classid = '';
                 this.categoryId = '';
                 this.name = '';
-                this.maxPoints = 0;
+                this.maxPoints = 100;
                 this.pointsEarned = 0;
                 this.possibleExtraCredit = 0;
                 this.notYetGraded = false;
