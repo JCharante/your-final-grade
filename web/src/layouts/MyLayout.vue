@@ -32,7 +32,7 @@
                                 (<a href="https://jcharante.com">Jyan</a>, Jack, and James)
                             </div>
                             <div class="text-subtitle2" v-else>
-                                (<a href="https://jcharante.com">张坚</a>, 杨亦诚和James)
+                                (<a href="https://jcharante.com">张坚</a>, 杨亦诚和机米)
                             </div>
                         </q-card-section>
 
