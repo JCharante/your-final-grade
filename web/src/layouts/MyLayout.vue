@@ -59,10 +59,13 @@
                                 </q-item>
                                 <q-item>
                                     <q-item-section avatar>
-                                        <q-icon name="check_box_outline_blank"/>
+                                        <q-icon name="check_box"/>
                                     </q-item-section>
                                     <q-item-section>
                                         <q-item-label>{{ $t('sync_online') }}</q-item-label>
+                                    </q-item-section>
+                                    <q-item-section avatar>
+                                        <q-icon name="cloud"/>
                                     </q-item-section>
                                     <q-item-section avatar v-if="displayVoting">
                                         <q-btn icon="plus_one" flat dense/>
@@ -74,6 +77,17 @@
                                     </q-item-section>
                                     <q-item-section>
                                         <q-item-label>{{ $t('dark_mode') }}</q-item-label>
+                                    </q-item-section>
+                                    <q-item-section avatar v-if="displayVoting">
+                                        <q-btn icon="plus_one" flat dense/>
+                                    </q-item-section>
+                                </q-item>
+                                <q-item>
+                                    <q-item-section avatar>
+                                        <q-icon name="check_box_outline_blank"/>
+                                    </q-item-section>
+                                    <q-item-section>
+                                        <q-item-label>{{ $t('signin_with_google') }}</q-item-label>
                                     </q-item-section>
                                     <q-item-section avatar v-if="displayVoting">
                                         <q-btn icon="plus_one" flat dense/>

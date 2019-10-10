@@ -70,4 +70,5 @@ export default {
     explain_top_worth_more_num: 'Number of assignments that will be counted more',
     explain_top_worth_value: 'Weight in percentage of each top assignment',
     explain_bot_worth_value: 'Weight in percentage of the rest of the assignments',
+    signin_with_google: 'Sign in with Google',
 };
