@@ -149,10 +149,11 @@
             </template>
         </div>
         <q-page-sticky position="bottom-right" :offset="[18, 18]">
-            <template v-if="Object.values(classInfo.categories).length">
+            <q-btn fab color="secondary" @click="addCategory" icon="add"/>
+            <!--
+            <template v-if="Object.values(classInfo.categories).length === 0">
                 <q-btn fab color="secondary" @click="addCategory" icon="add"/>
             </template>
-            <!--
             <template v-else>
                 <q-fab color="accent" icon="keyboard_arrow_up" direction="up">
                     <q-fab-action color="primary" @click="addGrade" icon="grade" />
