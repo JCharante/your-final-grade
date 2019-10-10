@@ -36,8 +36,6 @@
                             </div>
                         </q-card-section>
 
-                        <q-separator dark inset />
-
                         <q-card-section>
                             <div class="text-center">
                                 {{ $t('our_goal') }}
