@@ -78,7 +78,7 @@ export function retrieveDataStore({ commit, dispatch, getters }) {
             requestType: 'getStore',
         })
             .then((response) => {
-                console.log(response);
+                // console.log(response);
                 const { data, app, user } = response.data.dataStore;
                 commit('recoverDataFromAnotherStore', data);
                 commit('recoverUserFromAnotherStore', user);
