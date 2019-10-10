@@ -71,4 +71,5 @@ export default {
     explain_bot_worth_value: '每个占比低的项目的占比',
     back_to_list_of_classes: '回到课程列表',
     signin_with_google: '用Google账户登陆',
+    share_site_with_friend: '分享给你的伙伴',
 };
