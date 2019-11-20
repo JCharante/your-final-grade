@@ -141,7 +141,7 @@
                             <p class="text-center">{{ $t('share_site_with_friend') }}</p>
                         </q-card-section>
                         <q-card-section>
-                            <q-img src="statics/qr-code.svg" style="width: 200px"/>
+                            <div id="qrcode"></div>
                         </q-card-section>
                     </q-card>
                 </div>
@@ -155,9 +155,11 @@
 </template>
 
 <script>
-    import { mapGetters, mapActions } from 'vuex';
+    import qrcode from 'qrcodejs2';
 
+    import { mapGetters, mapActions } from 'vuex';
     import ENUS from 'quasar/lang/en-us';
+
     import ZHHANS from 'quasar/lang/zh-hans';
 
     export default {
@@ -190,6 +192,16 @@
                 },
             },
         },
+        mounted() {
+            // eslint-disable-next-line new-cap
+            this.qrcode = new qrcode("qrcode", {
+                width: 200,
+                height: 200,
+                colorDark: "#ac2b37",
+                colorLight: "#fff",
+            });
+            this.qrcode.makeCode(window.location.origin);
+        },
         methods: {
             ...mapActions([
                 'userLogout',
@@ -216,6 +228,7 @@
                 enus: ENUS,
                 zhhans: ZHHANS,
                 router: this.$router,
+                qrcode: null,
             };
         },
     };
