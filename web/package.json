@@ -16,6 +16,7 @@
     "qrcodejs2": "0.0.2",
     "quasar": "^1.0.0",
     "vue-i18n": "^8.0.0",
+    "vue-qrcode-reader": "^2.1.1",
     "your-final-grade-calculator-public": "^0.0.7"
   },
   "devDependencies": {

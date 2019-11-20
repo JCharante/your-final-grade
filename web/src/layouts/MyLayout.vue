@@ -2,7 +2,7 @@
     <q-layout view="hHh LpR lFf">
         <q-header elevated>
             <q-toolbar>
-                <q-btn v-if="$router.currentRoute.name === 'ClassView'" flat round dense icon="clear" @click="$router.push('/')"/>
+                <q-btn v-if="$router.currentRoute.name === 'ClassView' || $router.currentRoute.name === 'Scan'" flat round dense icon="clear" @click="$router.push('/')"/>
                 <q-btn v-else @click="drawerLeft = !drawerLeft" flat round dense icon="menu" />
                 <q-toolbar-title>
                     {{ pageTitle }}
@@ -14,6 +14,7 @@
                 >
                     {{ $i18n.locale === 'zh-cn' ? enus.nativeName : zhhans.nativeName }}
                 </q-btn>
+                <q-btn flat icon="linked_camera" @click="$router.push('/scan')"/>
                 <q-btn flat icon="share" @click="rightDrawer = !rightDrawer"/>
             </q-toolbar>
         </q-header>

@@ -72,4 +72,10 @@ export default {
     back_to_list_of_classes: '回到课程列表',
     signin_with_google: '用Google账户登陆',
     share_site_with_friend: '分享给你的伙伴',
+    scan_qr: '扫描二维码',
+    not_our_qr_code: '那个二维码不是我们的二维码。',
+    new_qr_code: '给我一个新二维码吧',
+    confirm_qr_login: '你确定你想登入？',
+    yeah: '对',
+    nah: '不对',
 };
