@@ -8,9 +8,9 @@
             </div>
         </div>
         <div v-if="!promptConfirmation">
-            <p class="error">{{ error }}</p>
-            <p class="decode-result">Last result: <b>{{ result }}</b></p>
-            <qrcode-stream @decode="onDecode" @init="onInit"/>
+            <div style="border-color: #ac2b37; max-width: 90%; margin: auto; border-width: 2px; border-style: dashed;">
+                <qrcode-stream @decode="onDecode" @init="onInit"/>
+            </div>
         </div>
     </q-page>
 </template>

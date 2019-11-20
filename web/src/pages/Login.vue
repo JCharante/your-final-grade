@@ -1,9 +1,10 @@
 <template>
     <q-page class="flex flex-center">
         <div class="row" style="width: 390px; max-width: 90%;">
-            <div class="col-12">
+            <div class="col-12 row justify-center items-center">
                 <div id="login-qrcode" ref="lqr" style="margin: auto;"></div>
             </div>
+            <hr style="margin-top: 20px;" v-if="!tokenScanned">
             <div class="col-12">
                 <template v-if="tokenScanned">
                     <div class="col-12 text-center">
