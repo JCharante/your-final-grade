@@ -42,8 +42,8 @@
             ]),
             onDecode(result) {
                 this.result = result;
-                const dat = result.split(',');
-                if (dat.length === 2 && dat[0] === "YFG") {
+                const dat = result.split('https://yourfinalgrade.com/app/#/scan?token=');
+                if (dat.length === 2 && dat[0] === "") {
                     if (this.socket != null) {
                         this.socket.send(JSON.stringify({
                             requestType: "scanToken",
@@ -109,11 +109,11 @@
             this.setPageTitle({ name: this.$t('scan_qr') });
             this.socket = new WebSocket("wss://your-final-grade.appspot.com");
             this.socket.onopen = function () {
-                console.log("Established WSS Connection");
+                // console.log("Established WSS Connection");
             };
             this.socket.onmessage = function (event) {
                 const data = JSON.parse(event.data);
-                console.log(data);
+                // console.log(data);
                 switch (data.requestType) {
                 case 'tokenValid': {
                     self.token = data.token;

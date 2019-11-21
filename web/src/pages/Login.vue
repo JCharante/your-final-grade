@@ -186,22 +186,22 @@
             this.socket = new WebSocket("wss://your-final-grade.appspot.com");
             const self = this;
             this.socket.onopen = function () {
-                console.log("Established WSS Connection");
+                // console.log("Established WSS Connection");
                 self.requestNewToken();
             };
             this.socket.onmessage = function (event) {
                 const data = JSON.parse(event.data);
-                console.log(data);
+                // console.log(data);
 
                 switch (data.requestType) {
                 case 'newToken':
                     self.$refs.lqr.style.display = 'block';
-                    console.log('got new token, make new qr code');
-                    self.qrcode.makeCode(`YFG,${data.token}`);
+                    // console.log('got new token, make new qr code');
+                    self.qrcode.makeCode(`https://yourfinalgrade.com/app/#/scan?token=${data.token}`);
                     break;
                 case 'tokenScanned':
                     self.tokenScanned = true;
-                    console.log('token scanned');
+                    // console.log('token scanned');
                     self.$refs.lqr.style.display = 'none';
                     // self.requestNewToken();
                     break;
