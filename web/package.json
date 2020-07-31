@@ -1,0 +1,39 @@
+{
+  "name": "your-final-grade-spa",
+  "version": "1.0.1",
+  "description": "Your Final Grade - The Ultimate Final Grade Calculator",
+  "productName": "Your Final Grade",
+  "cordovaId": "org.cordova.quasar.app",
+  "author": "jcharante <git@jcharante.com>",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.vue src",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "axios": "^0.18.1",
+    "qrcodejs2": "0.0.2",
+    "quasar": "^1.0.0",
+    "vue-i18n": "^8.0.0",
+    "vue-qrcode-reader": "^2.1.1",
+    "your-final-grade-calculator-public": "^0.0.7"
+  },
+  "devDependencies": {
+    "@quasar/app": "^1.0.0",
+    "@vue/eslint-config-airbnb": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.10.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-vue": "^5.0.0",
+    "quasar-app-extension-ide-helper": "0.0.6"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0",
+    "yarn": ">= 1.6.0"
+  },
+  "browserslist": [
+    "last 1 version, not dead, ie >= 11"
+  ]
+}
