@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JCharante/your-final-grade-api.git"
+    "url": "git+https://github.com/JCharante/your-final-grade.git"
   },
   "author": "jcharante <git@jcharante.com>",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/JCharante/your-final-grade-api/issues"
+    "url": "https://github.com/JCharante/your-final-grade/issues"
   },
-  "homepage": "https://github.com/JCharante/your-final-grade-api#readme",
+  "homepage": "https://github.com/JCharante/your-final-grade#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
