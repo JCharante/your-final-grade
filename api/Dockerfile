@@ -1,6 +1,6 @@
 FROM node:14.4
 
-WORKDIR /usr/src/cas-api
+WORKDIR /usr/src/yfg-api
 
 COPY package.json package-lock.json ./
 
