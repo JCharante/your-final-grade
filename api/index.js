@@ -2,9 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
-const atlasUrl = process.env.ATLAS_URL;
 
 const mongoHandler = require('./mongo');
 

@@ -1,6 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectID;
-const atlasURL = process.env.ATLAS_URL;
+const atlasURL = process.env.YFG_API_ATLAS_URL;
 const bcrypt = require('bcrypt');
 
 async function getConnectedClient() {
