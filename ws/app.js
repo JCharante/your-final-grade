@@ -117,7 +117,7 @@ wss.on('connection', function connection(ws) {
 });
 
 if (module === require.main) {
-  const PORT = process.env.PORT || 8081;
+  const PORT = process.env.PORT || 3002;
   server.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
     console.log('Press Ctrl+C to quit.');
