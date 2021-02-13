@@ -15,11 +15,14 @@ exports.handler = (event, context, callback) => {
 };
 
 async function handleRequest(req, res, spare) {
-    res.set({
-        'Access-Control-Allow-Origin': ['*'],
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
-        'Access-Control-Allow-Headers': 'Content-Type',
-    });
+    if (process.env.DEVMODE) {
+        res.set({
+            'Access-Control-Allow-Origin': ['*'],
+            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+            'Access-Control-Allow-Headers': 'Content-Type',
+        });
+    }
+    
     if (req.method === 'OPTIONS') {
         res.status(200).send();
         return;
@@ -88,6 +91,7 @@ async function handleRequest(req, res, spare) {
             }
             ret = await mongoHandler.createSession(userDoc._id)
             sessionKey = ret.sessionKey;
+            console.log('200 Sent response', JSON.stringify({ sessionKey }));
             res.status(200).send(JSON.stringify({ sessionKey }));
             break;
         case 'login':
