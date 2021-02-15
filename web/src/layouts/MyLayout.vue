@@ -156,8 +156,6 @@
 </template>
 
 <script>
-    import qrcode from 'qrcodejs2';
-
     import { mapGetters, mapActions } from 'vuex';
     import ENUS from 'quasar/lang/en-us';
 
@@ -195,7 +193,7 @@
         },
         mounted() {
             // eslint-disable-next-line new-cap
-            this.qrcode = new qrcode("qrcode", {
+            this.qrcode = new this.$qrcode("qrcode", {
                 width: 200,
                 height: 200,
                 colorDark: "#ac2b37",

@@ -62,11 +62,14 @@
 
 
 <script>
-    import qrcode from 'qrcodejs2';
+    import QRCode from 'qrcode';
+
 
     import { mapGetters, mapActions } from 'vuex';
     import { Notify } from 'quasar';
     import { axiosInstance } from '../boot/axios';
+
+    const fetch = require('node-fetch');
 
     export default {
         name: 'Login',
@@ -177,7 +180,7 @@
         mounted() {
             this.setPageTitle({ name: this.$t('your_final_grade') });
             // eslint-disable-next-line new-cap
-            this.qrcode = new qrcode("login-qrcode", {
+            this.qrcode = new this.$qrcode("login-qrcode", {
                 width: 200,
                 height: 200,
                 colorDark: "#ac2b37",

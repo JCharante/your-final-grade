@@ -10,13 +10,14 @@ module.exports = function (ctx) {
             'i18n',
             'axios',
             'addressbar-color',
+            { path: 'qrcodejs2', server: false },
         ],
-        
+
         // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
         css: [
             'app.sass'
         ],
-        
+
         // https://github.com/quasarframework/quasar/tree/dev/extras
         extras: [
             // 'ionicons-v4',
@@ -25,16 +26,16 @@ module.exports = function (ctx) {
             // 'eva-icons',
             // 'themify',
             // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
-            
+
             'roboto-font', // optional, you are not bound to it
             'material-icons' // optional, you are not bound to it
         ],
-        
+
         // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
         framework: {
             // iconSet: 'ionicons-v4', // Quasar icon set
             // lang: 'de', // Quasar language pack
-            
+
             // Possible values for "all":
             // * 'auto' - Auto-import needed Quasar components & directives
             //            (slightly higher compile time; next to minimum bundle size; most convenient)
@@ -43,10 +44,10 @@ module.exports = function (ctx) {
             // * true   - Import everything from Quasar
             //            (not treeshaking Quasar; biggest bundle size; convenient)
             all: 'auto',
-            
+
             components: [],
             directives: [],
-            
+
             // Quasar plugins
             plugins: [
                 'Dialog',
@@ -55,10 +56,10 @@ module.exports = function (ctx) {
                 'AddressbarColor',
             ],
         },
-        
+
         // https://quasar.dev/quasar-cli/cli-documentation/supporting-ie
         supportIE: false,
-        
+
         // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
         build: {
             scopeHoisting: true,
@@ -68,7 +69,7 @@ module.exports = function (ctx) {
             // analyze: true,
             // preloadChunks: false,
             // extractCSS: false,
-            
+
             // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
             extendWebpack (cfg) {
                 cfg.module.rules.push({
@@ -82,23 +83,23 @@ module.exports = function (ctx) {
                 })
             }
         },
-        
+
         // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
         devServer: {
             // https: true,
-            // port: 8080,
-            open: true // opens browser window automatically
+            port: 3000,
+            open: false // opens browser window automatically
         },
-        
+
         // animations: 'all', // --- includes all animations
         // https://quasar.dev/options/animations
         animations: [],
-        
+
         // https://quasar.dev/quasar-cli/developing-ssr/configuring-ssr
         ssr: {
             pwa: false
         },
-        
+
         // https://quasar.dev/quasar-cli/developing-pwa/configuring-pwa
         pwa: {
             // workboxPluginMode: 'InjectManifest',
@@ -140,38 +141,38 @@ module.exports = function (ctx) {
                 ]
             }
         },
-        
+
         // https://quasar.dev/quasar-cli/developing-cordova-apps/configuring-cordova
         cordova: {
             // id: 'org.cordova.quasar.app',
             // noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
         },
-        
+
         // https://quasar.dev/quasar-cli/developing-electron-apps/configuring-electron
         electron: {
             // bundler: 'builder', // or 'packager'
-            
+
             extendWebpack (cfg) {
                 // do something with Electron main process Webpack cfg
                 // chainWebpack also available besides this extendWebpack
             },
-            
+
             packager: {
                 // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
-                
+
                 // OS X / Mac App Store
                 // appBundleId: '',
                 // appCategoryType: '',
                 // osxSign: '',
                 // protocol: 'myapp://path',
-                
+
                 // Windows only
                 // win32metadata: { ... }
             },
-            
+
             builder: {
                 // https://www.electron.build/configuration/configuration
-                
+
                 // appId: 'your-final-grade-spa'
             }
         }
