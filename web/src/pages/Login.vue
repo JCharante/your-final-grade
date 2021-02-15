@@ -183,7 +183,7 @@
                 colorDark: "#ac2b37",
                 colorLight: "#fff",
             });
-            this.socket = new WebSocket("wss://your-final-grade.appspot.com");
+            this.socket = new WebSocket("wss://ws.yourfinalgrade.com");
             const self = this;
             this.socket.onopen = function () {
                 // console.log("Established WSS Connection");
