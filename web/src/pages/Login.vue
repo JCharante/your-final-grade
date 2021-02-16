@@ -66,8 +66,6 @@
     import { Notify } from 'quasar';
     import { axiosInstance } from '../boot/axios';
 
-    const fetch = require('node-fetch');
-
     export default {
         name: 'Login',
         data() {
