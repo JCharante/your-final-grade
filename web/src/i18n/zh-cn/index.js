@@ -38,7 +38,7 @@ export default {
     try_different_username: '用户名已被使用 ┗(•̀へ •́ ╮ )',
     invalid_credentials: '(」°ロ°)」 用户名或密码错误',
     edit_class_details: '编辑课程信息',
-    your_final_grade: '你的最终成绩',
+    your_final_grade: 'YFG',
     a_tool_built_with_love_by: '一个用爱创造的工具',
     our_goal: '我们的目标是给学生👩‍🎓创建一个🔥究极🔥最终💪成绩💯 计算机🧮',
     feature_roadmap: '额外功能',
@@ -78,4 +78,6 @@ export default {
     confirm_qr_login: '你确定你想登入？',
     yeah: '对',
     nah: '不对',
+    add_class: '添加课程',
+    yfg_user_guide: 'YDF的用户手册',
 };
