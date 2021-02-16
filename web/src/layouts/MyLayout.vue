@@ -2,7 +2,7 @@
     <q-layout view="hHh LpR lFf">
         <q-header elevated>
             <q-toolbar>
-                <q-btn v-if="$router.currentRoute.name === 'ClassView' || $router.currentRoute.name === 'Scan'" flat round dense icon="clear" @click="$router.push('/')"/>
+                <q-btn v-if="$router.currentRoute.name === 'ClassView' || $router.currentRoute.name === 'Scan'" flat round dense icon="clear" @click="$router.push('/app/')"/>
                 <q-btn v-else @click="drawerLeft = !drawerLeft" flat round dense icon="menu" />
                 <q-toolbar-title>
                     {{ pageTitle }}
@@ -14,7 +14,7 @@
                 >
                     {{ $i18n.locale === 'zh-cn' ? enus.nativeName : zhhans.nativeName }}
                 </q-btn>
-                <q-btn flat icon="linked_camera" @click="$router.push('/scan')"/>
+                <q-btn flat icon="linked_camera" @click="$router.push('/app/scan')"/>
                 <q-btn flat icon="share" @click="rightDrawer = !rightDrawer"/>
             </q-toolbar>
         </q-header>
@@ -43,58 +43,6 @@
                                 {{ $t('our_goal') }}
                             </div>
                         </q-card-section>
-                        <q-card-section>
-                            <q-list dense>
-                                <q-item-label header>{{ $t('feature_roadmap')}}:</q-item-label>
-                                <q-item>
-                                    <q-item-section avatar>
-                                        <q-icon name="check_box"/>
-                                    </q-item-section>
-                                    <q-item-section>
-                                        <q-item-label>{{ $t('offline_only_mode') }}</q-item-label>
-                                    </q-item-section>
-                                    <q-item-section avatar>
-                                        <q-icon name="cloud_off"/>
-                                    </q-item-section>
-                                </q-item>
-                                <q-item>
-                                    <q-item-section avatar>
-                                        <q-icon name="check_box"/>
-                                    </q-item-section>
-                                    <q-item-section>
-                                        <q-item-label>{{ $t('sync_online') }}</q-item-label>
-                                    </q-item-section>
-                                    <q-item-section avatar>
-                                        <q-icon name="cloud"/>
-                                    </q-item-section>
-                                    <q-item-section avatar v-if="displayVoting">
-                                        <q-btn icon="plus_one" flat dense/>
-                                    </q-item-section>
-                                </q-item>
-                                <q-item>
-                                    <q-item-section avatar>
-                                        <q-icon name="check_box_outline_blank"/>
-                                    </q-item-section>
-                                    <q-item-section>
-                                        <q-item-label>{{ $t('dark_mode') }}</q-item-label>
-                                    </q-item-section>
-                                    <q-item-section avatar v-if="displayVoting">
-                                        <q-btn icon="plus_one" flat dense/>
-                                    </q-item-section>
-                                </q-item>
-                                <q-item>
-                                    <q-item-section avatar>
-                                        <q-icon name="check_box_outline_blank"/>
-                                    </q-item-section>
-                                    <q-item-section>
-                                        <q-item-label>{{ $t('signin_with_google') }}</q-item-label>
-                                    </q-item-section>
-                                    <q-item-section avatar v-if="displayVoting">
-                                        <q-btn icon="plus_one" flat dense/>
-                                    </q-item-section>
-                                </q-item>
-                            </q-list>
-                        </q-card-section>
                         <q-separator insert dark/>
                         <q-card-section>
                             <div class="text-center">
@@ -107,13 +55,6 @@
                 <div class="col-3 row justify-start items-end">
                     <q-card flat :dark="getDarkModeEnabled" :class="{'bg-grey-10': getDarkModeEnabled}">
                         <q-card-section>
-                            <q-toggle v-if="isProbablySignedIn"
-                                      v-model="darkModeEnabled"
-                                      :dark="getDarkModeEnabled"
-                                      disable
-                                      :label="$t('dark_mode')"/>
-                        </q-card-section>
-                        <q-card-section>
                             <q-toggle v-model="enableOnlineSync"
                                       :disable="getSessionKey === 'unregistered'"
                                       :label="$t('enable_online_sync')"/>
@@ -121,7 +62,7 @@
                         <q-card-section>
                             <q-btn v-if="isProbablySignedIn"
                                    flat
-                                   @click="userLogout().then(dataLogout()).then(appLogout()).then($router.push('/login'))"
+                                   @click="userLogout().then(dataLogout()).then(appLogout()).then($router.push('/app/login'))"
                                    color="accent"
                                    :dark="getDarkModeEnabled"
                                    icon="exit_to_app">{{ $t('logout') }}</q-btn>
@@ -134,17 +75,55 @@
         <q-drawer v-model="rightDrawer"
                   side="right"
                   show-if-above
-                  :width="250">
-            <div class="column justify-center items-center" style="height: 95%">
-                <div class="col-6">
-                    <q-card flat>
-                        <q-card-section>
-                            <p class="text-center">{{ $t('share_site_with_friend') }}</p>
-                        </q-card-section>
-                        <q-card-section>
-                            <div id="qrcode"></div>
-                        </q-card-section>
-                    </q-card>
+                  :width="350">
+            <div class="column" style="max-width: 96%; margin: auto;">
+                <div class="row">
+                    <h5>{{ $t('yfg_user_guide') }}</h5>
+                </div>
+                <div class="row">
+                    <p><b>Adding classes.</b> To start out using YFG, first create a class entry. You can create as many
+                    as you'd like. Afterwards, click on one of the classes to continue.</p>
+                </div>
+                <div class="row justify-center">
+                    <q-btn :label="$t('add_class')" outline icon="add" color="info"/>
+                </div>
+                <div class="row text-center">
+                    <p style="margin-top: 15px;">The button looks like this and is located in the bottom-right corner.</p>
+                </div>
+                <div class="row">
+                    <p><b>Adding Categories.</b> Once on a class page, you need to add categories in order to help
+                    calculate your grade. These categories may be things like 'Homework', 'Labs', 'Final Exam', 'Quizzes'. </p>
+                </div>
+                <div class="row justify-center">
+                    <q-btn :label="$t('add_category')" outline color="info" icon="add"/>
+                </div>
+                <div class="row text-center">
+                    <p style="margin-top: 15px;">The button looks like this and is located in the bottom-right corner.</p>
+                </div>
+                <div class="row">
+                    <p><b>Adding assignments.</b> For each category, you'll need to enter your assignments. These may
+                    be homework assignments or quizzes. If you only have 2 quiz results but you expect to take 5 and
+                    have the lowest grade dropped, then make sure the category is set to drop the lowest 1 grade, and
+                    add 5 quiz assignments. There is a toggle switch for assignments that are not yet graded.</p>
+                    <q-item>
+                        <q-item-section>
+                            <q-item-label><b>Example Category</b></q-item-label>
+                        </q-item-section>
+                        <q-item-section>
+                            <q-item-label>90.00%</q-item-label>
+                            <q-item-label caption>18.00% / 20.00%</q-item-label>
+                        </q-item-section>
+                        <q-item-section avatar>
+                            <q-btn icon="add" dense flat color="red"/>
+                        </q-item-section>
+                        <q-item-section avatar>
+                            <q-btn icon="more_vert" flat dense>
+                            </q-btn>
+                        </q-item-section>
+                    </q-item>
+                </div>
+                <div class="row text-center">
+                    <p style="margin-top: 15px;">Colored red for emphasis. Each category has a button for entering assignments.</p>
                 </div>
             </div>
         </q-drawer>

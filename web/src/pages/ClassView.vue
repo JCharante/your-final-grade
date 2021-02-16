@@ -7,7 +7,7 @@
                 <div class="col">
                     <q-btn icon="arrow_left"
                            flat
-                           @click="$router.push('/')"
+                           @click="$router.push('/app/')"
                            :label="$t('back_to_list_of_classes')"/>
                 </div>
             </div>
@@ -149,7 +149,7 @@
             </template>
         </div>
         <q-page-sticky position="bottom-right" :offset="[18, 18]">
-            <q-btn fab color="secondary" @click="addCategory" icon="add"/>
+            <q-btn :label="$t('add_category')" outline color="info" @click="addCategory" icon="add"/>
             <!--
             <template v-if="Object.values(classInfo.categories).length === 0">
                 <q-btn fab color="secondary" @click="addCategory" icon="add"/>

@@ -62,9 +62,6 @@
 
 
 <script>
-    import QRCode from 'qrcode';
-
-
     import { mapGetters, mapActions } from 'vuex';
     import { Notify } from 'quasar';
     import { axiosInstance } from '../boot/axios';
@@ -159,7 +156,7 @@
                     });
             },
             continueWithoutAccount() {
-                this.$store.dispatch('setSessionDoc', { sessionKey: 'unregistered' }).then(this.$router.push('/'));
+                this.$store.dispatch('setSessionDoc', { sessionKey: 'unregistered' }).then(this.$router.push('/app'));
                 this.$store.dispatch('setDisplayName', { displayName: 'Unregistered User' });
             },
             requestNewToken() {
@@ -189,22 +186,21 @@
             this.socket = new WebSocket("wss://ws.yourfinalgrade.com");
             const self = this;
             this.socket.onopen = function () {
-                // console.log("Established WSS Connection");
+                console.log("Established WSS Connection");
                 self.requestNewToken();
             };
             this.socket.onmessage = function (event) {
                 const data = JSON.parse(event.data);
-                // console.log(data);
+                console.log('Received from WSS', data);
 
                 switch (data.requestType) {
                 case 'newToken':
                     self.$refs.lqr.style.display = 'block';
-                    // console.log('got new token, make new qr code');
                     self.qrcode.makeCode(`https://yourfinalgrade.com/app/#/scan?token=${data.token}`);
                     break;
                 case 'tokenScanned':
                     self.tokenScanned = true;
-                    // console.log('token scanned');
+                    console.log('WSS: token scanned');
                     self.$refs.lqr.style.display = 'none';
                     // self.requestNewToken();
                     break;

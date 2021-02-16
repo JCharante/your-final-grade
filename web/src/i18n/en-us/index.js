@@ -79,4 +79,8 @@ export default {
     confirm_qr_login: 'Are you sure you want to log in on a new device?',
     yeah: 'Yeah',
     nah: 'Nah',
+    login: 'Login',
+    add_class: 'Add Class',
+    add_category: 'Add Category',
+    yfg_user_guide: 'YFG User Guide',
 };

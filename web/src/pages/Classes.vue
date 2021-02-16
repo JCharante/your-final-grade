@@ -10,14 +10,14 @@
                     <q-item-section>
                         <q-item-label>{{ getClassById(classId).name }}</q-item-label>
                     </q-item-section>
-                    <q-item-section avatar @click="$router.push(`/class/${classId}`)">
+                    <q-item-section avatar @click="$router.push(`/app/class/${classId}`)">
                         <q-avatar flat icon="keyboard_arrow_right"/>
                     </q-item-section>
                 </q-item>
             </q-list>
         </div>
         <q-page-sticky position="bottom-right" :offset="[18, 18]">
-            <q-btn fab icon="add" color="accent" @click="fabClick"/>
+            <q-btn :label="$t('add_class')" outline icon="add" color="info" @click="fabClick"/>
         </q-page-sticky>
     </q-page>
 </template>
