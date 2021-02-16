@@ -1,13 +1,20 @@
 
 const routes = [
     {
-        path: '/',
+        path: '/app',
         component: () => import('layouts/MyLayout.vue'),
         children: [
             { path: 'login', component: () => import('pages/Login.vue') },
             { path: 'class/:classid', component: () => import('pages/ClassView.vue'), props: true, name: 'ClassView' },
             { path: 'scan', component: () => import('pages/Scan.vue'), name: 'Scan' },
             { path: '', component: () => import('pages/Classes.vue'), name: 'Classes' },
+        ],
+    },
+    {
+        path: '',
+        component: () => import('layouts/BlankLayout.vue'),
+        children: [
+            { path: '', component: () => import('pages/Index.vue'), name: 'Home' },
         ],
     },
 ];
