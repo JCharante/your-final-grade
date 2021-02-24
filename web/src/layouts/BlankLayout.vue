@@ -4,7 +4,10 @@
             <q-toolbar class="bg-white text-primary shadow-0">
                 <div></div>
                 <q-toolbar-title>
-                    {{ $q.screen.lt.sm ? 'YFG' : 'Your Final Grade' }}
+                    <router-link to="/" class="text-primary" style="text-decoration: none;">
+                        {{ $q.screen.lt.sm ? 'YFG' : 'Your Final Grade' }}
+                    </router-link>
+
                 </q-toolbar-title>
 
                 <div></div>

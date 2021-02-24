@@ -14,6 +14,7 @@ const routes = [
         path: '',
         component: () => import('layouts/BlankLayout.vue'),
         children: [
+            { path: 'privacy', component: () => import('pages/Privacy.vue') },
             { path: '', component: () => import('pages/Index.vue'), name: 'Home' },
         ],
     },
